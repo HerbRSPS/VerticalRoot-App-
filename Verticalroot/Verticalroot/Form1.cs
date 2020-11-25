@@ -18,5 +18,15 @@ namespace Verticalroot
            
             InitializeComponent();
         }
+
+        private void textBox1_TextChanged(object sender, EventArgs e)
+        {
+           
+        }
+
+        private void btnLogin_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("flikker");
+        }
     }
 }

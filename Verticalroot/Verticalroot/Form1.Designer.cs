@@ -28,67 +28,71 @@
         /// </summary>
         private void InitializeComponent()
         {
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
-            this.maskedTextBox1 = new System.Windows.Forms.MaskedTextBox();
-            this.listBox1 = new System.Windows.Forms.ListBox();
-            this.label1 = new System.Windows.Forms.Label();
+            this.tbPassword = new System.Windows.Forms.TextBox();
+            this.btnLogin = new System.Windows.Forms.PictureBox();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).BeginInit();
             this.SuspendLayout();
             // 
-            // richTextBox1
+            // tbPassword
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(186, 240);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(100, 96);
-            this.richTextBox1.TabIndex = 0;
-            this.richTextBox1.Text = "";
+            this.tbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbPassword.Location = new System.Drawing.Point(714, 567);
+            this.tbPassword.Multiline = true;
+            this.tbPassword.Name = "tbPassword";
+            this.tbPassword.Size = new System.Drawing.Size(507, 63);
+            this.tbPassword.TabIndex = 1;
+            this.tbPassword.Text = "Password";
             // 
-            // maskedTextBox1
+            // btnLogin
             // 
-            this.maskedTextBox1.Location = new System.Drawing.Point(176, 135);
-            this.maskedTextBox1.Name = "maskedTextBox1";
-            this.maskedTextBox1.Size = new System.Drawing.Size(100, 22);
-            this.maskedTextBox1.TabIndex = 1;
+            this.btnLogin.BackColor = System.Drawing.Color.Transparent;
+            this.btnLogin.BackgroundImage = global::Verticalroot.Properties.Resources.Enter_button;
+            this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.btnLogin.Location = new System.Drawing.Point(768, 744);
+            this.btnLogin.Name = "btnLogin";
+            this.btnLogin.Size = new System.Drawing.Size(388, 78);
+            this.btnLogin.TabIndex = 6;
+            this.btnLogin.TabStop = false;
+            this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // listBox1
+            // textBox1
             // 
-            this.listBox1.FormattingEnabled = true;
-            this.listBox1.ItemHeight = 16;
-            this.listBox1.Location = new System.Drawing.Point(354, 190);
-            this.listBox1.Name = "listBox1";
-            this.listBox1.Size = new System.Drawing.Size(120, 84);
-            this.listBox1.TabIndex = 2;
-            // 
-            // label1
-            // 
-            this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(464, 113);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(46, 17);
-            this.label1.TabIndex = 3;
-            this.label1.Text = "label1";
+            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.textBox1.Location = new System.Drawing.Point(714, 460);
+            this.textBox1.Multiline = true;
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(507, 63);
+            this.textBox1.TabIndex = 7;
+            this.textBox1.Text = "Password";
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(800, 450);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.listBox1);
-            this.Controls.Add(this.maskedTextBox1);
-            this.Controls.Add(this.richTextBox1);
+            this.AutoSize = true;
+            this.BackgroundImage = global::Verticalroot.Properties.Resources.Untitled_1;
+            this.ClientSize = new System.Drawing.Size(1902, 972);
+            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.btnLogin);
+            this.Controls.Add(this.tbPassword);
             this.Name = "Form1";
-            this.Text = "Form1";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
+            this.Text = "login";
+            ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
         }
 
         #endregion
-
-        private System.Windows.Forms.RichTextBox richTextBox1;
-        private System.Windows.Forms.MaskedTextBox maskedTextBox1;
-        private System.Windows.Forms.ListBox listBox1;
-        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.TextBox tbPassword;
+        private System.Windows.Forms.PictureBox btnLogin;
+        private System.Windows.Forms.TextBox textBox1;
     }
 }
 
