@@ -25,7 +25,7 @@ namespace Verticalroot
                 string connectionString = "datasource=localhost;port=3306;username=root;password="; //database server name and mysql port and username and password
                 string mysql = "SELECT * FROM vertical_root.users;";
 
-                //frfrfr
+                //frfrfreee
                 MySqlConnection conn = new MySqlConnection(connectionString);
                 MySqlCommand command = new MySqlCommand(mysql, conn);
 
