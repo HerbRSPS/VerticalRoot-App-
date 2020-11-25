@@ -1,4 +1,4 @@
-﻿namespace Verticalroot
+﻿namespace Verticalroot.GUI
 {
     partial class Dashboard
     {
