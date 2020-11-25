@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace Verticalroot.GUI
+namespace Verticalroot
 {
     public partial class Dashboard : Form
     {
