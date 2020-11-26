@@ -49,5 +49,10 @@ namespace VerticalRoot
                 MessageBox.Show(ex.Message);
             }
         }
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://www.i467376.hera.fhict.nl/public/login");
+        }
     }
 }
