@@ -23,6 +23,8 @@ namespace VerticalRoot
         public MainWindow()
         {
             InitializeComponent();
+            databaseconnection egg = new databaseconnection();
+            egg.Show();
         }
 
 
