@@ -6,11 +6,11 @@
         xmlns:local="clr-namespace:VerticalRoot"
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
-    <Grid>
+    <Grid Height="425">
         <Grid.Background>
             <ImageBrush ImageSource="Untitled-1.png"/>
         </Grid.Background>
-        <TextBox Height="28" Margin="296,189,292.6,203" TextWrapping="Wrap" Text="Username" Width="205" Background="White" VerticalContentAlignment="Center">
+        <TextBox Height="26.4" Margin="296,189,292.6,205" TextWrapping="Wrap" Text="Username" Width="205" Background="White" VerticalContentAlignment="Center" FontSize="14">
             <TextBox.BindingGroup>
                 <BindingGroup/>
             </TextBox.BindingGroup>
@@ -18,7 +18,7 @@
                 <ImageBrush/>
             </TextBox.BorderBrush>
         </TextBox>
-        <TextBox Height="28" Margin="296,233,292.6,159" TextWrapping="Wrap" Text="Password" Width="205" Background="White" VerticalContentAlignment="Center">
+        <TextBox Height="26.4" Margin="296,233,292.6,161" TextWrapping="Wrap" Text="Password" Width="205" Background="White" VerticalContentAlignment="Center" FontSize="14" FontFamily="HoloLens MDL2 Assets">
             <TextBox.BorderBrush>
                 <ImageBrush/>
             </TextBox.BorderBrush>
