@@ -30,13 +30,15 @@
         {
             this.tbPassword = new System.Windows.Forms.TextBox();
             this.btnLogin = new System.Windows.Forms.PictureBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.tbUsername = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.btnLogin)).BeginInit();
             this.SuspendLayout();
             // 
             // tbPassword
             // 
-            this.tbPassword.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.tbPassword.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.tbPassword.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tbPassword.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.tbPassword.Location = new System.Drawing.Point(714, 567);
@@ -48,6 +50,9 @@
             // 
             // btnLogin
             // 
+            this.btnLogin.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
             this.btnLogin.BackColor = System.Drawing.Color.Transparent;
             this.btnLogin.BackgroundImage = global::Verticalroot.Properties.Resources.Enter_button;
             this.btnLogin.Cursor = System.Windows.Forms.Cursors.Hand;
@@ -58,17 +63,20 @@
             this.btnLogin.TabStop = false;
             this.btnLogin.Click += new System.EventHandler(this.btnLogin_Click);
             // 
-            // textBox1
+            // tbUsername
             // 
-            this.textBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.textBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.textBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBox1.Location = new System.Drawing.Point(714, 460);
-            this.textBox1.Multiline = true;
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(507, 63);
-            this.textBox1.TabIndex = 7;
-            this.textBox1.Text = "Password";
+            this.tbUsername.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.tbUsername.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.tbUsername.Font = new System.Drawing.Font("Microsoft Sans Serif", 36F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.tbUsername.Location = new System.Drawing.Point(714, 460);
+            this.tbUsername.Multiline = true;
+            this.tbUsername.Name = "tbUsername";
+            this.tbUsername.ScrollBars = System.Windows.Forms.ScrollBars.Horizontal;
+            this.tbUsername.Size = new System.Drawing.Size(507, 63);
+            this.tbUsername.TabIndex = 7;
+            this.tbUsername.Text = "Username";
             // 
             // Form1
             // 
@@ -77,7 +85,7 @@
             this.AutoSize = true;
             this.BackgroundImage = global::Verticalroot.Properties.Resources.Untitled_1;
             this.ClientSize = new System.Drawing.Size(1902, 972);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.tbUsername);
             this.Controls.Add(this.btnLogin);
             this.Controls.Add(this.tbPassword);
             this.Name = "Form1";
@@ -92,7 +100,7 @@
         #endregion
         private System.Windows.Forms.TextBox tbPassword;
         private System.Windows.Forms.PictureBox btnLogin;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox tbUsername;
     }
 }
 
