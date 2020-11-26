@@ -7,7 +7,26 @@
         mc:Ignorable="d"
         Title="MainWindow" Height="450" Width="800">
     <Grid>
-        <Border BorderBrush="Black" BorderThickness="1" HorizontalAlignment="Left" Height="100" Margin="74,50,0,0" VerticalAlignment="Top" Width="100"/>
-
+        <Grid.Background>
+            <ImageBrush ImageSource="Untitled-1.png"/>
+        </Grid.Background>
+        <TextBox Height="28" Margin="296,189,292.6,203" TextWrapping="Wrap" Text="Username" Width="205" Background="White" VerticalContentAlignment="Center">
+            <TextBox.BindingGroup>
+                <BindingGroup/>
+            </TextBox.BindingGroup>
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <TextBox Height="28" Margin="296,233,292.6,159" TextWrapping="Wrap" Text="Password" Width="205" Background="White" VerticalContentAlignment="Center">
+            <TextBox.BorderBrush>
+                <ImageBrush/>
+            </TextBox.BorderBrush>
+        </TextBox>
+        <Button Content="Login" Margin="328,308,326.6,83" Width="139" Height="29" Background="#FF32C2A4">
+            <Button.BorderBrush>
+                <ImageBrush/>
+            </Button.BorderBrush>
+        </Button>
     </Grid>
 </Window>
