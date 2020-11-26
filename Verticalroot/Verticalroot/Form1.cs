@@ -22,21 +22,21 @@ namespace Verticalroot
         {
             try
             {
-                string connectionString = "datasource=localhost;port=3306;username=root;password="; //database server name and mysql port and username and password
-                string mysql = "SELECT * FROM vertical_root.users;";
+                string connectionString = "server=studmysql01.fhict.local;database=dbi467376;username=dbi467376;password=password123"; //database server name and mysql port and username and password
+                //string mysql = "SELECT * FROM dbi467376.tbl_datadetails;";
 
-                //frfrfreee
                 MySqlConnection conn = new MySqlConnection(connectionString);
-                MySqlCommand command = new MySqlCommand(mysql, conn);
+                //MySqlCommand command = new MySqlCommand(mysql, conn);
 
                 conn.Open();
-
+                /*
                 MySqlDataAdapter dtb = new MySqlDataAdapter();
                 dtb.SelectCommand = command;
 
                 DataTable dtable = new DataTable();
                 dtb.Fill(dtable);
                 dataGridView1.DataSource = dtb;
+                */
             }
             catch(Exception ex)
             {
