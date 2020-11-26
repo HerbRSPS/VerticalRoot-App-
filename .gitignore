@@ -259,3 +259,48 @@ paket-files/
 # Python Tools for Visual Studio (PTVS)
 __pycache__/
 *.pyc
+Verticalroot/Verticalroot.sln
+
+Verticalroot/Verticalroot/App GUI/Dashboard.cs
+
+Verticalroot/Verticalroot/App GUI/Dashboard.Designer.cs
+
+Verticalroot/Verticalroot/App GUI/Dashboard.resx
+
+Verticalroot/Verticalroot/App.config
+
+Verticalroot/Verticalroot/Dashboard.Designer.cs
+
+Verticalroot/Verticalroot/Form1.cs
+
+Verticalroot/Verticalroot/Form1.Designer.cs
+
+Verticalroot/Verticalroot/Form1.resx
+
+Verticalroot/Verticalroot/Form2.cs
+
+Verticalroot/Verticalroot/Form2.Designer.cs
+
+Verticalroot/Verticalroot/Form2.resx
+
+Verticalroot/Verticalroot/Program.cs
+
+Verticalroot/Verticalroot/Properties/AssemblyInfo.cs
+
+Verticalroot/Verticalroot/Properties/Resources.Designer.cs
+
+Verticalroot/Verticalroot/Properties/Resources.resx
+
+Verticalroot/Verticalroot/Properties/Settings.Designer.cs
+
+Verticalroot/Verticalroot/Properties/Settings.settings
+
+Verticalroot/Verticalroot/Resources/Enter_button.png
+
+Verticalroot/Verticalroot/Resources/Password.png
+
+Verticalroot/Verticalroot/Resources/TW6cJw3.png
+
+Verticalroot/Verticalroot/Resources/Untitled-1.png
+
+Verticalroot/Verticalroot/Verticalroot.csproj
