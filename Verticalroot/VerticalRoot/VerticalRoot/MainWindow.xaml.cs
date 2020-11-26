@@ -26,5 +26,12 @@ namespace VerticalRoot
             databaseconnection egg = new databaseconnection();
             egg.Show();
         }
+
+
+
+        private void Button_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBox.Show("test");
+        }
     }
 }
