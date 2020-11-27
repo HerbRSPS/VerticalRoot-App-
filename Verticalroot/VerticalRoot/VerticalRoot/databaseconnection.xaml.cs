@@ -27,7 +27,7 @@ namespace VerticalRoot
             InitializeComponent();
             try
             {
-                string connectionString = "datasource=localhost;database=vertical_root;port=3306;username=root;password="; //database server name and mysql port and username and password
+                string connectionString = "Server=studmysql01.fhict.local;Database=dbi467376;Uid=dbi467376;Pwd=password123;"; //database server name and mysql port and username and password
                 string mysql = "SELECT * FROM tbl_datadetails;";
 
                 MySqlConnection conn = new MySqlConnection(connectionString);
