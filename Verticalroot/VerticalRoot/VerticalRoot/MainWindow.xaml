@@ -68,7 +68,7 @@
         <Grid.Background>
             <ImageBrush ImageSource="Untitled-1.png"/>
         </Grid.Background>
-        <TextBox Height="26.4" Margin="296,189,292.6,205" TextWrapping="Wrap" Text="Username" Width="205" Background="White" VerticalContentAlignment="Center" FontSize="14" AutomationProperties.Name="tbUsername">
+        <TextBox x:Name="tbUsername" Height="26.4" Margin="296,189,292.6,205" TextWrapping="Wrap" Text="Username" Width="205" Background="White" VerticalContentAlignment="Center" FontSize="14" AutomationProperties.Name="tbUsername" TextChanged="TextBox_TextChanged">
             <TextBox.BindingGroup>
                 <BindingGroup/>
             </TextBox.BindingGroup>
@@ -76,12 +76,15 @@
                 <ImageBrush/>
             </TextBox.BorderBrush>
         </TextBox>
-        <TextBox Height="26.4" Margin="296,233,292.6,161" TextWrapping="Wrap" Text="Password" Width="205" Background="White" VerticalContentAlignment="Center" FontSize="14" FontFamily="HoloLens MDL2 Assets" AutomationProperties.Name="tbPassword">
+        <TextBox x:Name="tbPassword" Height="26.4" Margin="296,233,292.6,161" TextWrapping="Wrap" Text="Password" Width="205" Background="White" VerticalContentAlignment="Center" FontSize="14" AutomationProperties.Name="tbPassword">
             <TextBox.BorderBrush>
                 <ImageBrush/>
             </TextBox.BorderBrush>
         </TextBox>
-        <Button Content="Login" Margin="328,311,326.6,85" Width="139" Height="29" Background="#FFCD1F70" Click="Button_Click" AutomationProperties.Name="btnLogin" UseLayoutRounding="False" BorderThickness="1" Cursor="Hand" Style="{DynamicResource `RoundedButton}">
+        <Button Content="Login" Margin="315.8,307.2,314.4,81" Background="#FF32C2A4" Click="Button_Click" AutomationProperties.Name="btnLogin" UseLayoutRounding="False" BorderThickness="1" Cursor="Hand" Style="{DynamicResource `RoundedButton}">
+            <Button.BitmapEffect>
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.01" Opacity="0.5" ShadowDepth="4" />
+            </Button.BitmapEffect>
             <Button.BorderBrush>
                 <ImageBrush/>
             </Button.BorderBrush>
