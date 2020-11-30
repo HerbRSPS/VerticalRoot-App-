@@ -59,6 +59,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </ApplicationDefinition>
+    <Page Include="Dashboard.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
     <Page Include="databaseconnection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -70,6 +74,9 @@
     <Compile Include="App.xaml.cs">
       <DependentUpon>App.xaml</DependentUpon>
       <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Dashboard.xaml.cs">
+      <DependentUpon>Dashboard.xaml</DependentUpon>
     </Compile>
     <Compile Include="databaseconnection.xaml.cs">
       <DependentUpon>databaseconnection.xaml</DependentUpon>
@@ -116,6 +123,15 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Untitled-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Layer 1.png" />
+    <Resource Include="img\textlogo.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Layer 8.png" />
+    <Resource Include="img\Rectangle 6 copy 2.png" />
+    <Resource Include="img\Shape 19.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

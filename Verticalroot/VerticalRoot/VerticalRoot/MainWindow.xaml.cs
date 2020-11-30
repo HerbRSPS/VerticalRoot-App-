@@ -26,6 +26,9 @@ namespace VerticalRoot
             InitializeComponent();
             databaseconnection egg = new databaseconnection();
             egg.Show();
+
+            Dashboard dash = new Dashboard();
+            dash.Show();
         }
 
 
