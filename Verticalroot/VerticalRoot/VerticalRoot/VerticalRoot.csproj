@@ -81,6 +81,7 @@
     <Compile Include="databaseconnection.xaml.cs">
       <DependentUpon>databaseconnection.xaml</DependentUpon>
     </Compile>
+    <Compile Include="DB.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>

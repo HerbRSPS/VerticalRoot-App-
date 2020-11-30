@@ -13,6 +13,8 @@ using System.Windows.Media.Imaging;
 using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
+using MySql.Data.MySqlClient;
+
 
 namespace VerticalRoot
 {
@@ -21,6 +23,8 @@ namespace VerticalRoot
     /// </summary>
     public partial class MainWindow : Window
     {
+
+        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=mysql");
         public MainWindow()
         {
             InitializeComponent();
@@ -35,23 +39,52 @@ namespace VerticalRoot
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            SqlConnection sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Fontys\Proftaak\GroepsProjectArduino\Git Kraken\C#\VerticalRoot-App-\Verticalroot\VerticalRoot\VerticalRoot\Database voor inlog\inlogDB.mdf;Integrated Security=True;Connect Timeout=30");
-            String query = "Select * from tbl_login Where username = '" + tbUsername.Text.Trim() + "' and password = '" + tbPassword.Text.Trim()+"'";
-                    //query = "SELECT * From TableName WHERE Title = @Title";
-                    //command.Parameters.Add("@Title", SqlDbType.VarChar).Value = someone;
-            SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
-            System.Data.DataTable dtbl = new System.Data.DataTable();
-            sda.Fill(dtbl);
-            if (dtbl.Rows.Count == 1)
+            DB db = new DB();
+
+            string username = tbUsername.Text;
+            string password = tbPassword.Text;
+
+            System.Data.DataTable table = new System.Data.DataTable(); // de DataTable hoort zonder de Systen.Data maar dan werkt het niet dus doe ik het even zo.
+
+            MySqlDataAdapter adapter = new MySqlDataAdapter();
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM `logindb` WHERE `username` = @usn and `password` = @pass", db.GetConnection());
+
+            command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = username;
+            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
+
+            adapter.SelectCommand = command;
+
+            adapter.Fill(table);
+
+            if(table.Rows.Count > 0)
             {
-                frmDashboard objfrmDashboard = new frmDashboard();
-                this.Hide();
-                objfrmDashboard.Show();
+                MessageBox.Show("YES");
             }
             else
             {
-                MessageBox.Show("Foutieve inloggegevens");
+                MessageBox.Show("NO");
             }
+
+
+
+            //SqlConnection sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Fontys\Proftaak\GroepsProjectArduino\Git Kraken\C#\VerticalRoot-App-\Verticalroot\VerticalRoot\VerticalRoot\Database voor inlog\inlogDB.mdf;Integrated Security=True;Connect Timeout=30");
+            //String query = "Select * from tbl_login Where username = '" + tbUsername.Text.Trim() + "' and password = '" + tbPassword.Text.Trim()+"'";
+            //        //query = "SELECT * From TableName WHERE Title = @Title";
+            //        //command.Parameters.Add("@Title", SqlDbType.VarChar).Value = someone;
+            //SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
+            //System.Data.DataTable dtbl = new System.Data.DataTable();
+            //sda.Fill(dtbl);
+            //if (dtbl.Rows.Count == 1)
+            //{
+            //    frmDashboard objfrmDashboard = new frmDashboard();
+            //    this.Hide();
+            //    objfrmDashboard.Show();
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Foutieve inloggegevens");
+            //}
 
         }
 
