@@ -27,7 +27,12 @@ namespace VerticalRoot
             InitializeComponent();
             try
             {
-                string connectionString = "Server=studmysql01.fhict.local;Database=dbi467376;Uid=dbi467376;Pwd=password123;"; //database server name and mysql port and username and password
+                //online connection database
+                string connectionString = "Server=studmysql01.fhict.local;Uid=dbi467376;Database=dbi467376;Pwd=password123;"; //database server name and mysql port and username and password
+
+                // Local connection database
+                //string connectionString = "Server=localhost;Uid=root;Database=vertical_root;Password=;"; //database server name and mysql port and username and password
+
                 string mysql = "SELECT * FROM tbl_datadetails;";
 
                 MySqlConnection conn = new MySqlConnection(connectionString);
@@ -35,24 +40,31 @@ namespace VerticalRoot
 
                 conn.Open();
 
-                //MySqlDataAdapter dtb = new MySqlDataAdapter();
-               // dtb.SelectCommand = command;
-
+                MySqlDataAdapter dtb = new MySqlDataAdapter();
+                dtb.SelectCommand = command;
                 DataTable dt = new DataTable();
                 dt.Load(command.ExecuteReader());
-                conn.Close();
+                
+                dtb.Fill(dt);
 
-                dtGrid.DataContext = dt;
+                datagrid1.ItemsSource = mysql.ToList();
+                
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+     
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://www.i467376.hera.fhict.nl/public/login");
+        }
+
+        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }
