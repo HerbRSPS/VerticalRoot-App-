@@ -11,8 +11,12 @@
             <ColumnDefinition Width="23*"/>
             <ColumnDefinition Width="65*"/>
         </Grid.ColumnDefinitions>
+<<<<<<< HEAD
         <Button Content="Login with website" HorizontalAlignment="Left" Margin="24,48,0,0" VerticalAlignment="Top" Width="75" RenderTransformOrigin="-0.251,-0.432" Click="Button_Click"/>
         <DataGrid  Name="datagrid1" HorizontalAlignment="Left" Height="328" VerticalAlignment="Top" Width="509" Grid.Column="1" Margin="0,60,0,0" SelectionChanged="DataGrid_SelectionChanged"/>
+=======
+        <DataGrid HorizontalAlignment="Left" Height="350" Margin="136,10,0,0" Name="dtGrid" VerticalAlignment="Top" Width="587" Grid.ColumnSpan="2"/>
+>>>>>>> main
 
     </Grid>
 </Window>
