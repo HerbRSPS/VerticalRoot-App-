@@ -5,8 +5,15 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VerticalRoot"
         mc:Ignorable="d"
-        Title="Dashboard" Height="450" Width="800">
+        Title="Dashboard" Height="450" Width="800" Background="#FFF1F5F8">
     <Grid>
-        
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="373" Margin="-1,47,0,-1" VerticalAlignment="Top" Width="195" Background="#FFFBFBFB"/>
+
+
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="50" VerticalAlignment="Top" Width="794" Background="#FFFBFBFB" Margin="-1,-1,-1,0">
+            <Border.BitmapEffect>
+                <DropShadowBitmapEffect Color="#FF646464" Direction="270" Softness="1" Opacity="0.195" ShadowDepth="0"/>
+            </Border.BitmapEffect>
+        </Border>
     </Grid>
 </Window>
