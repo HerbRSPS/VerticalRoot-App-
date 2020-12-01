@@ -22,6 +22,7 @@ namespace VerticalRoot
         public Dashboard()
         {
             InitializeComponent();
+            
         }
     }
 }

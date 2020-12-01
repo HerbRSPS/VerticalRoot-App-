@@ -21,18 +21,19 @@ namespace VerticalRoot
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow : Window
+    public partial class MainWindow: Window
     {
-
-        MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=mysql");
+        //MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=mysql");
+        //dit staat ook in de class.
         public MainWindow()
         {
+            this.Title = "Login";
             InitializeComponent();
             databaseconnection egg = new databaseconnection();
-            egg.Show();
+            //egg.Show();
 
             Dashboard dash = new Dashboard();
-            dash.Show();
+            //dash.Show();
         }
 
 
@@ -59,7 +60,12 @@ namespace VerticalRoot
 
             if(table.Rows.Count > 0)
             {
-                MessageBox.Show("YES");
+                //MessageBox.Show("YES");
+                this.Close();
+
+                Dashboard frm2 = new Dashboard();
+
+                frm2.Show();
             }
             else
             {
