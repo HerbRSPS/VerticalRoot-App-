@@ -83,7 +83,7 @@
         </TextBox>
         <Button Content="Login" Margin="315.8,307.2,314.4,81" Background="#FF32C2A4" Click="Button_Click" AutomationProperties.Name="btnLogin" UseLayoutRounding="False" BorderThickness="1" Cursor="Hand" Style="{DynamicResource `RoundedButton}">
             <Button.BitmapEffect>
-                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.01" Opacity="0.5" ShadowDepth="4" />
+                <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.01" Opacity=".5" ShadowDepth="4" />
             </Button.BitmapEffect>
             <Button.BorderBrush>
                 <ImageBrush/>

@@ -134,5 +134,26 @@
     <Resource Include="img\Rectangle 6 copy 2.png" />
     <Resource Include="img\Shape 19.png" />
   </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Profile Picture Megan Batoon.jpeg" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Room Sensors.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rectangle 7.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shape 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Layer 5.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Layer 6.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
