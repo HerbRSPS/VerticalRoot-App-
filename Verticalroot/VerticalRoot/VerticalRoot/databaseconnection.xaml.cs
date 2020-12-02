@@ -15,12 +15,8 @@ using System.Data;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
 
-
 namespace VerticalRoot
 {
-    /// <summary>
-    /// Interaction logic for databaseconnection.xaml
-    /// </summary>
     public partial class databaseconnection : Window
     {
         public databaseconnection()
@@ -28,39 +24,35 @@ namespace VerticalRoot
             InitializeComponent();
             try
             {
-                //online connection database
                 string connectionString = "Server=studmysql01.fhict.local;Uid=dbi467376;Database=dbi467376;Pwd=password123;"; //database server name and mysql port and username and password
-
-                // Local connection database
-                //string connectionString = "Server=localhost;Uid=root;Database=vertical_root;Password=;"; //database server name and mysql port and username and password
-
                 string mysql = "SELECT * FROM tbl_datadetails;";
 
-                //MySqlDataAdapter dtb = new MySqlDataAdapter();
-                //dtb.SelectCommand = command;
-                DataTable dt = new DataTable();
-                //dt.Load(command.ExecuteReader());
-                
-                //dtb.Fill(dt);
+                MySqlConnection conn = new MySqlConnection(connectionString);
+                MySqlCommand command = new MySqlCommand(mysql, conn);
 
-              
+                conn.Open();
+
+                //MySqlDataAdapter dtb = new MySqlDataAdapter();
+                // dtb.SelectCommand = command;
+
+                //datatable dt = new datatable();
+                //dt.load(command.executereader());
                 
+
+
+                MySqlDataAdapter da = new MySqlDataAdapter(command);
+                DataTable dtt = new DataTable();
+                da.Fill(dtt);
+                DataGrid dg = new DataGrid();
+                dtGrid.ItemsSource = dtt.AsDataView();
+                conn.Close();
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-     
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
-        {
-            System.Diagnostics.Process.Start("https://www.i467376.hera.fhict.nl/public/login");
-        }
-
-        private void DataGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
-
-        }
+ 
     }
 }
