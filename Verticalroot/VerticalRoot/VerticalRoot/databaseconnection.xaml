@@ -6,12 +6,15 @@
         xmlns:local="clr-namespace:VerticalRoot"
         mc:Ignorable="d"
         Title="databaseconnection" Height="450" Width="800">
-    <Grid>
+    <Grid >
         <Grid.ColumnDefinitions>
             <ColumnDefinition Width="23*"/>
             <ColumnDefinition Width="65*"/>
         </Grid.ColumnDefinitions>
-        <DataGrid HorizontalAlignment="Left" Height="328" VerticalAlignment="Top" Width="509" Grid.Column="1" Margin="0,60,0,0" SelectionChanged="DataGrid_SelectionChanged"/>
+
+        <DataGrid  HorizontalAlignment="Left" Height="350" Margin="136,10,0,0" Name="dtGrid" VerticalAlignment="Top" Width="587" Grid.ColumnSpan="2"/>
+
+
     </Grid>
 </Window>
 
