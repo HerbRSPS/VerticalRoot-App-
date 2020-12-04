@@ -92,8 +92,15 @@
       <DependentUpon>MainWindow.xaml</DependentUpon>
       <SubType>Code</SubType>
     </Compile>
+    <Page Include="plantdetail.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="plantdetail.xaml.cs">
+      <DependentUpon>plantdetail.xaml</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs">
       <SubType>Code</SubType>
     </Compile>
@@ -136,24 +143,6 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="img\Profile Picture Megan Batoon.jpeg" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="1.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Room Sensors.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Rectangle 7.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Shape 5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Layer 5.png" />
-  </ItemGroup>
-  <ItemGroup>
-    <Resource Include="Layer 6.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

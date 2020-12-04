@@ -14,7 +14,8 @@ using System.Windows.Navigation;
 using System.Windows.Shapes;
 using System.Data.SqlClient;
 using MySql.Data.MySqlClient;
-
+using System.IO;
+using System.Security.Cryptography;
 
 namespace VerticalRoot
 {
@@ -32,6 +33,9 @@ namespace VerticalRoot
             databaseconnection egg = new databaseconnection();
             //egg.Show();
 
+            plantdetail p = new plantdetail();
+            p.Show();
+
             Dashboard dash = new Dashboard();
             //dash.Show();
         }
@@ -40,25 +44,33 @@ namespace VerticalRoot
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
+            
             DB db = new DB();
-
+            db.openConnection();
             string username = tbUsername.Text;
             string password = tbPassword.Text;
+            string pwd = "$2y$10$TzCGWCoS4VY69rFm54g00e1E8A8GGwB6MVlv3SGK7u4K.i7Oc53QS";
 
             System.Data.DataTable table = new System.Data.DataTable(); // de DataTable hoort zonder de Systen.Data maar dan werkt het niet dus doe ik het even zo.
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM `logindb` WHERE `username` = @usn and `password` = @pass", db.GetConnection());
+            ///////////////////////////////////////////////////////////////////////////////
+            // Create sha256 hash
+            
+
+
+
+            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE name = @usn and password = @pass", db.GetConnection());
 
             command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = username;
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
-
+            
             adapter.SelectCommand = command;
 
             adapter.Fill(table);
-
-            if(table.Rows.Count > 0)
+           
+            if (table.Rows.Count > 0)
             {
                 //MessageBox.Show("YES");
                 this.Close();
@@ -69,34 +81,15 @@ namespace VerticalRoot
             }
             else
             {
-                MessageBox.Show("NO");
+                MessageBox.Show("Verkeerde Inloggegevens");
             }
-
-
-
-            //SqlConnection sqlcon = new SqlConnection(@"Data Source=(LocalDB)\MSSQLLocalDB;AttachDbFilename=D:\Fontys\Proftaak\GroepsProjectArduino\Git Kraken\C#\VerticalRoot-App-\Verticalroot\VerticalRoot\VerticalRoot\Database voor inlog\inlogDB.mdf;Integrated Security=True;Connect Timeout=30");
-            //String query = "Select * from tbl_login Where username = '" + tbUsername.Text.Trim() + "' and password = '" + tbPassword.Text.Trim()+"'";
-            //        //query = "SELECT * From TableName WHERE Title = @Title";
-            //        //command.Parameters.Add("@Title", SqlDbType.VarChar).Value = someone;
-            //SqlDataAdapter sda = new SqlDataAdapter(query, sqlcon);
-            //System.Data.DataTable dtbl = new System.Data.DataTable();
-            //sda.Fill(dtbl);
-            //if (dtbl.Rows.Count == 1)
-            //{
-            //    frmDashboard objfrmDashboard = new frmDashboard();
-            //    this.Hide();
-            //    objfrmDashboard.Show();
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Foutieve inloggegevens");
-            //}
-
         }
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
+       
+      
     }
 }
