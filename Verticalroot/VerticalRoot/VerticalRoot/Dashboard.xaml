@@ -31,10 +31,9 @@
         <Image HorizontalAlignment="Left" Height="24" Margin="45,286,0,0" VerticalAlignment="Top" Width="24" Source="img/Shape 5.png" Stretch="None"/>
         <Image HorizontalAlignment="Left" Height="24" Margin="45,329,0,0" VerticalAlignment="Top" Width="24" Source="img/Layer 5.png" Stretch="None" Cursor="Hand"/>
         <Image HorizontalAlignment="Left" Height="24" Margin="0,282,0,0" VerticalAlignment="Top" Width="24" Source="img/Rectangle 7.png" Stretch="None"/>
-        <Image HorizontalAlignment="Left" Height="648" Margin="209,383,0,-115" VerticalAlignment="Top" Width="429" Source="img/Crop Danger.png" Opacity="0.6"/>
+        <Image HorizontalAlignment="Left" Height="523" Margin="209,383,0,0" VerticalAlignment="Top" Width="429" Source="img/Crop Danger.png" Opacity="0.6" Stretch="None"/>
         <Image HorizontalAlignment="Left" Height="75" Margin="288,535,0,0" VerticalAlignment="Top" Width="257" Source="img/Rectangle 3 copy 2.png"/>
         <Image HorizontalAlignment="Left" Height="33" Margin="305,554,0,0" VerticalAlignment="Top" Width="33" Source="img/Layer 17.png"/>
-
         <Label x:Name="Path" Content="Home/Dashboard" HorizontalAlignment="Left" Margin="270,84,0,0" VerticalAlignment="Top" Height="25" Width="387" FontFamily="Work Sans Light" Foreground="#FFD4D4D4"/>
         <Label x:Name="Name" Content="Herb RSPS" HorizontalAlignment="Center" Margin="66,200,1033,680" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
         <Label x:Name="Email" Content="herbrsps@yahoo.com" HorizontalAlignment="Center" Margin="25,221,992,659" VerticalAlignment="Center"  Width="206" FontFamily="Work sans" FontSize="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF838383" Height="36"/>
@@ -51,6 +50,6 @@
         <Label x:Name="Name_Copy12" Content="STRAWBERRY" HorizontalAlignment="Center" Margin="383,548,716,332" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF515151" Height="36"/>
         <Label x:Name="Name_Copy13" Content="LACKS 15ML WATER" HorizontalAlignment="Center" Margin="362,560,697,320" VerticalAlignment="Center"  Width="164" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FFE46969" Height="36" FontSize="8"/>
         <Label x:Name="Name_Copy11" Content="Crop Danger" HorizontalAlignment="Left" Margin="298,484,0,396" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
-
+        <ScrollBar HorizontalAlignment="Left" Margin="545,535,0,0" VerticalAlignment="Top" Height="334"/>
     </Grid>
 </Window>
