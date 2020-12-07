@@ -63,6 +63,10 @@
       <Generator>MSBuild:Compile</Generator>
       <SubType>Designer</SubType>
     </Page>
+    <Page Include="DashboardMyCrops.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
     <Page Include="databaseconnection.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
@@ -77,6 +81,9 @@
     </Compile>
     <Compile Include="Dashboard.xaml.cs">
       <DependentUpon>Dashboard.xaml</DependentUpon>
+    </Compile>
+    <Compile Include="DashboardMyCrops.xaml.cs">
+      <DependentUpon>DashboardMyCrops.xaml</DependentUpon>
     </Compile>
     <Compile Include="databaseconnection.xaml.cs">
       <DependentUpon>databaseconnection.xaml</DependentUpon>
@@ -152,7 +159,7 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
-    <Resource Include="img\Profile Picture Megan Batoon.jpeg">
+    <Resource Include="img\PF.jpeg">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
   </ItemGroup>
@@ -203,6 +210,12 @@
     <Resource Include="img\Layer 17.png">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Layer 5 selected.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Shape 5 normal.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

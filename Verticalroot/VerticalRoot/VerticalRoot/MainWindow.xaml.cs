@@ -30,14 +30,16 @@ namespace VerticalRoot
         {
             this.Title = "Login";
             InitializeComponent();
-            databaseconnection egg = new databaseconnection();
+            //databaseconnection egg = new databaseconnection();
             //egg.Show();
 
             plantdetail p = new plantdetail();
             p.Show();
 
             Dashboard dash = new Dashboard();
-            //dash.Show();
+            dash.Show();
+
+            this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
 

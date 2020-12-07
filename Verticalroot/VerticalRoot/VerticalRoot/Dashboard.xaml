@@ -12,28 +12,25 @@
             <Border.BitmapEffect>
                 <DropShadowBitmapEffect Color="#FF313131" Direction="270" Softness="1" Opacity="0.08" ShadowDepth="1"/>
             </Border.BitmapEffect>
-            <Image HorizontalAlignment="Left" Height="12" Margin="86,31,0,0" VerticalAlignment="Top" Width="111" Source="img/textlogo.png"/>
+            <Image HorizontalAlignment="Left" Height="12" Margin="86,31,0,0" VerticalAlignment="Top" Width="111" Source="img/textlogo.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
         </Border>
-        <Image HorizontalAlignment="Left" Height="27" Margin="53,22,0,0" VerticalAlignment="Top" Width="28" Source="img/Layer 1.png"/>
-        <Image HorizontalAlignment="Left" Height="11" Margin="24,30,0,0" VerticalAlignment="Top" Width="16" Source="img/Rectangle 6 copy 2.png" RenderTransformOrigin="0.5,0.5" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="18" Margin="1169,25,0,0" VerticalAlignment="Top" Width="18" Source="img/Layer 8.png" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="18" Margin="1115,26,0,0" VerticalAlignment="Top" Width="18" Source="img/Shape 19.png" RenderTransformOrigin="5.357,0.667" Cursor="Hand"/>
-        <Image Margin="46,103,1017,719" RenderTransformOrigin="0.5,0.5" Source="img/Profile Picture Megan Batoon.jpeg">
-            <Image.OpacityMask>
-                <RadialGradientBrush GradientOrigin="0.5,0.5" Center="0.5,0.5" RadiusX="0.5" RadiusY="0.5">
-                    <GradientStop Color="#ffffffff" Offset="0.9" />
-                    <GradientStop Color="#00ffffff" Offset="0.9" />
-                </RadialGradientBrush>
-            </Image.OpacityMask>
-        </Image>
-        <Image HorizontalAlignment="Center" Height="473" Margin="207,44,583,399" VerticalAlignment="Center" Width="433" Source="img/Room Sensors.png" Stretch="None"/>
-        <Image HorizontalAlignment="Left" Height="15" Margin="53,854,0,0" VerticalAlignment="Top" Width="15" Source="img/Layer 6.png" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="24" Margin="45,286,0,0" VerticalAlignment="Top" Width="24" Source="img/Shape 5.png" Stretch="None"/>
-        <Image HorizontalAlignment="Left" Height="24" Margin="45,329,0,0" VerticalAlignment="Top" Width="24" Source="img/Layer 5.png" Stretch="None" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="24" Margin="0,282,0,0" VerticalAlignment="Top" Width="24" Source="img/Rectangle 7.png" Stretch="None"/>
-        <Image HorizontalAlignment="Left" Height="523" Margin="209,383,0,0" VerticalAlignment="Top" Width="429" Source="img/Crop Danger.png" Opacity="0.6" Stretch="None"/>
-        <Image HorizontalAlignment="Left" Height="75" Margin="288,535,0,0" VerticalAlignment="Top" Width="257" Source="img/Rectangle 3 copy 2.png"/>
-        <Image HorizontalAlignment="Left" Height="33" Margin="305,554,0,0" VerticalAlignment="Top" Width="33" Source="img/Layer 17.png"/>
+        <Image HorizontalAlignment="Left" Height="27" Margin="53,22,0,0" VerticalAlignment="Top" Width="28" Source="img/Layer 1.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="11" Margin="24,30,0,0" VerticalAlignment="Top" Width="16" Source="img/Rectangle 6 copy 2.png" RenderTransformOrigin="0.5,0.5" Cursor="Hand" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="18" Margin="1169,25,0,0" VerticalAlignment="Top" Width="18" Source="img/Layer 8.png" Cursor="Hand" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="18" Margin="1115,26,0,0" VerticalAlignment="Top" Width="18" Source="img/Shape 19.png" RenderTransformOrigin="5.357,0.667" Cursor="Hand" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Ellipse Margin="83,112,1054,718">
+            <Ellipse.Fill>
+                <ImageBrush ImageSource="img/PF.jpeg" RenderOptions.BitmapScalingMode="HighQuality"/>
+            </Ellipse.Fill>
+        </Ellipse>
+        <Image HorizontalAlignment="Center" Height="473" Margin="207,44,583,399" VerticalAlignment="Center" Width="433" Source="img/Room Sensors.png" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="15" Margin="53,854,0,0" VerticalAlignment="Top" Width="15" Source="img/Layer 6.png" Cursor="Hand" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="24" Margin="45,286,0,0" VerticalAlignment="Top" Width="24" Source="img/Shape 5.png" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="24" Margin="45,329,0,0" VerticalAlignment="Top" Width="24" Source="img/Layer 5.png" Stretch="None" Cursor="Hand" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="24" Margin="0,282,0,0" VerticalAlignment="Top" Width="24" Source="img/Rectangle 7.png" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="523" Margin="209,383,0,0" VerticalAlignment="Top" Width="429" Source="img/Crop Danger.png" Opacity="0.6" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="75" Margin="288,535,0,0" VerticalAlignment="Top" Width="257" Source="img/Rectangle 3 copy 2.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="33" Margin="305,554,0,0" VerticalAlignment="Top" Width="33" Source="img/Layer 17.png" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
         <Label x:Name="Path" Content="Home/Dashboard" HorizontalAlignment="Left" Margin="270,84,0,0" VerticalAlignment="Top" Height="25" Width="387" FontFamily="Work Sans Light" Foreground="#FFD4D4D4"/>
         <Label x:Name="Name" Content="Herb RSPS" HorizontalAlignment="Center" Margin="66,200,1033,680" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
         <Label x:Name="Email" Content="herbrsps@yahoo.com" HorizontalAlignment="Center" Margin="25,221,992,659" VerticalAlignment="Center"  Width="206" FontFamily="Work sans" FontSize="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF838383" Height="36"/>
@@ -45,11 +42,12 @@
         <Label x:Name="Name_Copy6" Content="17°" HorizontalAlignment="Center" Margin="416,208,688,656" VerticalAlignment="Center"  Width="119" FontFamily="Work sans" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF3A3A3A" Height="52" RenderTransformOrigin="0.416,0.5"/>
         <Label x:Name="Name_Copy7" Content="LACKS 3°!" HorizontalAlignment="Center" Margin="409,269,690,611" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FFE46969" Height="36"/>
         <Label x:Name="Name_Copy8" Content="Dashboard" HorizontalAlignment="Left" Margin="72,282,0,598" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF10CAB7" Height="36"/>
-        <Label x:Name="Name_Copy9" Content="My Crops" HorizontalAlignment="Left" Margin="72,323,0,557" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF404447" Height="36" Cursor="Hand"/>
-        <Label x:Name="Name_Copy10" Content="Logout" HorizontalAlignment="Center" Margin="72,849,1027,31" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36" Cursor="Hand"/>
-        <Label x:Name="Name_Copy12" Content="STRAWBERRY" HorizontalAlignment="Center" Margin="383,548,716,332" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF515151" Height="36"/>
+        <Label x:Name="Name_Copy9" MouseLeftButtonUp="Name_Copy9_MouseDoubleClick" Content="My Crops" HorizontalAlignment="Left" Margin="72,323,0,557" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF404447" Height="36" Cursor="Hand"/>
+        <Label x:Name="Name_Copy10" MouseLeftButtonUp="Name_Copy10_MouseLeftButtonUp" Content="Logout" HorizontalAlignment="Center" Margin="72,849,1027,31" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36" Cursor="Hand"/>
         <Label x:Name="Name_Copy13" Content="LACKS 15ML WATER" HorizontalAlignment="Center" Margin="362,560,697,320" VerticalAlignment="Center"  Width="164" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FFE46969" Height="36" FontSize="8"/>
         <Label x:Name="Name_Copy11" Content="Crop Danger" HorizontalAlignment="Left" Margin="298,484,0,396" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
-        <ScrollBar HorizontalAlignment="Left" Margin="545,535,0,0" VerticalAlignment="Top" Height="334"/>
+        <Label x:Name="Name_Copy12" Content="STRAWBERRY" HorizontalAlignment="Center" Margin="383,548,716,332" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF515151" Height="36"/>
+    
+    
     </Grid>
-</Window>
+    </Window>

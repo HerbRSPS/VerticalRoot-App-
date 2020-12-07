@@ -15,24 +15,24 @@ using System.Windows.Shapes;
 namespace VerticalRoot
 {
     /// <summary>
-    /// Interaction logic for Dashboard.xaml
+    /// Interaction logic for DashboardMyCrops.xaml
     /// </summary>
-    public partial class Dashboard : Window
+    public partial class DashboardMyCrops : Window
     {
-        public Dashboard()
+        public DashboardMyCrops()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void Name_Copy9_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Name_Copy8_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Hide();
-            DashboardMyCrops MyCrops = new DashboardMyCrops();
-            MyCrops.Show();
+            Dashboard dash = new Dashboard();
+            dash.Show();
         }
 
-        private void Name_Copy10_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Name_Copy10_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Hide();
             MainWindow Login = new MainWindow();
