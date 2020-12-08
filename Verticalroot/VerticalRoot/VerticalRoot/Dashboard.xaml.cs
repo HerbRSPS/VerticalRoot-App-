@@ -30,6 +30,7 @@ namespace VerticalRoot
             Hide();
             DashboardMyCrops MyCrops = new DashboardMyCrops();
             MyCrops.Show();
+
         }
 
         private void Name_Copy10_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
