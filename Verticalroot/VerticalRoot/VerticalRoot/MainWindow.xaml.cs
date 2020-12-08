@@ -36,8 +36,8 @@ namespace VerticalRoot
             plantdetail p = new plantdetail();
             p.Show();
 
-            Dashboard dash = new Dashboard();
-            dash.Show();
+            //Dashboard dash = new Dashboard();
+            //dash.Show();
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }

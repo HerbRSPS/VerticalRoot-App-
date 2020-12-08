@@ -23,19 +23,36 @@ namespace VerticalRoot
     {
         public plantdetail()
         {
-            DB db = new DB();
-            db.openConnection();
-            InitializeComponent();
+            string uid = "2";
+            string pid = "1";
+            try
+            {
 
-            string mysql = "SELECT * FROM tbl_datadetails;";
+                DB db = new DB();
+                db.openConnection();
+                InitializeComponent();
+                string mysql = "SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = @pid;";
 
-            MySqlCommand command = new MySqlCommand(mysql, db.GetConnection());
+                
+                MySqlCommand command = new MySqlCommand(mysql, db.GetConnection());
+                command.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
+                command.Parameters.Add("@pid", MySqlDbType.VarChar).Value = pid;
+                MySqlDataAdapter da = new MySqlDataAdapter(command);
+                DataTable dtt = new DataTable();
+                da.Fill(dtt);
+                DataGrid dg = new DataGrid();
+                dt_plantdetail.ItemsSource = dtt.AsDataView();
 
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-            DataTable dtt = new DataTable();
-            da.Fill(dtt);
-            DataGrid dg = new DataGrid();
-            dt_plantdetail.ItemsSource = dtt.AsDataView();
+
+
+
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show(ex.Message);
+            }
         }
     }
 }
