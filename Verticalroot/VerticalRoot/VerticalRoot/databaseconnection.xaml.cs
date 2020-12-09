@@ -47,15 +47,35 @@ namespace VerticalRoot
                 DataGrid dg = new DataGrid();
                 dtGrid.ItemsSource = dtt.AsDataView();
 
-                var list = conn.Query<string>("select plant_name from tbl_datadetails").ToList();
-                testlist.ItemsSource = list;
+                var list = conn.Query<int>("select * from tbl_datadetails").ToList();
+                //testlist.ItemsSource = list;
+
+                var users = new List<showTable>();
+                //get user id,
+
+                for (int i = 0; i < list.Count; ++i)
+                {
+                    users.Add(new showTable {  ID = i, Name = list[i]});
+                }
+                myListView.ItemsSource = users;
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-       
+            
+        }
+        public class showTable
+        {
+            public int ID { get; set; }
+            public int Name { get; set; }
+            public int Pid { get; set; }
+
+            public override string ToString()
+            {
+                return this.Name.ToString();
+            }
         }
 
         public void DtGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
@@ -67,6 +87,7 @@ namespace VerticalRoot
             //stuur door naar de nieuwe form
             // return [uid, pid];
         }
+        
 
 
 

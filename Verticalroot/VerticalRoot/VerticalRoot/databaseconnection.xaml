@@ -15,16 +15,7 @@
         <DataGrid  HorizontalAlignment="Left" Height="350" Margin="136,10,0,0" Name="dtGrid" VerticalAlignment="Top" Width="587" Grid.ColumnSpan="2"/>
 
 
-        <ListView Name="testlist" ItemsSource="{Binding Collection}">
-            <ListView.ItemTemplate>
-                <DataTemplate>
-                    <StackPanel>
-                        <TextBlock Name="fuck"  Text="{Binding Property1}"/>
-                        <TextBlock Text="{Binding Property2}"/>
-                    </StackPanel>
-                </DataTemplate>
-            </ListView.ItemTemplate>
-        </ListView>
+        <ListView x:Name="myListView" />
     </Grid>
   
 </Window>
