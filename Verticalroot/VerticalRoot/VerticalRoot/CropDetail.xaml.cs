@@ -23,5 +23,19 @@ namespace VerticalRoot
         {
             InitializeComponent();
         }
+
+        private void Name_Copy8_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        {
+            Hide();
+            DashboardMyCrops MyCrops = new DashboardMyCrops();
+            MyCrops.Show();
+        }
+
+        private void Name_Copy10_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        {
+            Hide();
+            MainWindow Login = new MainWindow();
+            Login.Show();
+        }
     }
 }
