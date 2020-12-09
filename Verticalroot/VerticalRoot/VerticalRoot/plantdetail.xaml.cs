@@ -42,17 +42,18 @@ namespace VerticalRoot
                 da.Fill(dtt);
                 DataGrid dg = new DataGrid();
                 dt_plantdetail.ItemsSource = dtt.AsDataView();
-
-
-
-
-
+                
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
+        }
+
+        private void Dt_plantdetail_SelectionChanged(object sender, SelectionChangedEventArgs e)
+        {
+
         }
     }
 }

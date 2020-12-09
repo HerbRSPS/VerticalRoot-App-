@@ -7,7 +7,7 @@
         mc:Ignorable="d"
         Title="plantdetail" Height="450" Width="800">
     <Grid>
-        <DataGrid Name="dt_plantdetail" HorizontalAlignment="Left" Height="397" VerticalAlignment="Top" Width="741" Margin="41,12,0,0"/>
-
+        <DataGrid Name="dt_plantdetail" HorizontalAlignment="Left" Height="397" VerticalAlignment="Top" Width="741" Margin="41,12,0,0" SelectionChanged="Dt_plantdetail_SelectionChanged"/>
+        <Label x:Name="joejoe"  HorizontalAlignment="Center" Margin="394,619,705,261" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FFE46969" Height="36"/>
     </Grid>
 </Window>

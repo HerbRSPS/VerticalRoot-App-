@@ -30,8 +30,8 @@ namespace VerticalRoot
         {
             this.Title = "Login";
             InitializeComponent();
-            //databaseconnection egg = new databaseconnection();
-            //egg.Show();
+            databaseconnection egg = new databaseconnection();
+            egg.Show();
 
             plantdetail p = new plantdetail();
             p.Show();
