@@ -33,22 +33,48 @@
         <Label x:Name="Name_Copy8" MouseLeftButtonUp="Name_Copy8_MouseLeftButtonUp" Content="Dashboard" HorizontalAlignment="Left" Margin="72,282,0,598" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36" Cursor="Hand"/>
         <Label x:Name="Name_Copy9"  Content="My Crops" HorizontalAlignment="Left" Margin="72,323,0,557" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF10CAB7" Height="36" Cursor="None"/>
         <Label x:Name="Name_Copy10" MouseLeftButtonDown="Name_Copy10_MouseLeftButtonDown" Content="Logout" HorizontalAlignment="Center" Margin="72,849,1027,31" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="762" Margin="200,150,0,0" VerticalAlignment="Top" Width="432" Source="img/Plant Sensors.png"/>
-        <Label x:Name="Room_Sensors_Title" Content="Crop Sensors" HorizontalAlignment="Left" Margin="285,185,0,695" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
-        <Label x:Name="Light_Percentage" Content="25LX" HorizontalAlignment="Center" Margin="400,357,704,507" VerticalAlignment="Center"  Width="119" FontFamily="Work sans" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF3A3A3A" Height="52" RenderTransformOrigin="0.416,0.5"/>
-        <Label x:Name="Temperature_T" Content="TEMPERATURE" HorizontalAlignment="Center" Margin="394,291,705,589" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF8B8B8B" Height="36"/>
-        <Label x:Name="Name_Copy4" Content="PERFECT!" HorizontalAlignment="Center" Margin="394,415,705,465" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF41B657" Height="36"/>
-        <Label x:Name="Name_Copy5" Content="LIGHT" HorizontalAlignment="Center" Margin="394,400,705,480" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF8B8B8B" Height="36"/>
-        <Label x:Name="TemperatureTitle" Content="17°" HorizontalAlignment="Center" Margin="401,248,703,616" VerticalAlignment="Center"  Width="119" FontFamily="Work sans" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF3A3A3A" Height="52" RenderTransformOrigin="0.416,0.5"/>
-        <Label x:Name="Name_Copy7" Content="LACKS 3°!" HorizontalAlignment="Center" Margin="394,306,705,574" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FFE46969" Height="36"/>
-        <Label x:Name="Light_Percentage_Copy" Content="25%" HorizontalAlignment="Center" Margin="400,572,704,292" VerticalAlignment="Center"  Width="119" FontFamily="Work sans" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF3A3A3A" Height="52" RenderTransformOrigin="0.416,0.5"/>
-        <Label x:Name="Temperature_T_Copy" Content="HUMIDITY" HorizontalAlignment="Center" Margin="394,507,705,373" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF8B8B8B" Height="36"/>
-        <Label x:Name="Name_Copy" Content="LACKS 5%" HorizontalAlignment="Center" Margin="394,628,705,252" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FFE46969" Height="36"/>
-        <Label x:Name="Name_Copy1" Content="SOIL MOISTURE" HorizontalAlignment="Center" Margin="394,613,705,267" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF8B8B8B" Height="36"/>
-        <Label x:Name="Name_Copy2" Content="25%" HorizontalAlignment="Center" Margin="401,461,703,403" VerticalAlignment="Center"  Width="119" FontFamily="Work sans" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF3A3A3A" Height="52" RenderTransformOrigin="0.416,0.5"/>
-        <Label x:Name="Name_Copy3" Content="PERFECT!" HorizontalAlignment="Center" Margin="394,522,705,358" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF41B657" Height="36"/>
-        <Label x:Name="Light_Percentage_Copy1" Content="2ML/H" HorizontalAlignment="Center" Margin="369,684,679,180" VerticalAlignment="Center"  Width="175" FontFamily="Work sans" FontSize="36" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" Foreground="#FF3A3A3A" Height="52" RenderTransformOrigin="0.416,0.5"/>
-        <Label x:Name="Name_Copy11" Content="LACKS 1ML/H" HorizontalAlignment="Center" Margin="394,740,705,140" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FFE46969" Height="36"/>
-        <Label x:Name="Name_Copy12" Content="WATER FLOW" HorizontalAlignment="Center" Margin="394,725,705,155" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF8B8B8B" Height="36"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="649" Margin="273,160,0,0" VerticalAlignment="Top" Width="569" Opacity="0.4"/>
+        <Label x:Name="Room_Sensors_Title" Content="Crop Sensors" HorizontalAlignment="Left" Margin="285,183,0,697" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
+        <TabControl HorizontalAlignment="Left" Height="8" Margin="-285,535,0,0" VerticalAlignment="Top" Width="5">
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+            <TabItem Header="TabItem">
+                <Grid Background="#FFE5E5E5"/>
+            </TabItem>
+        </TabControl>
+        <ListView x:Name="TitleListView" Margin="320,232,719,132" Background="White" BorderBrush="White">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="50"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <ListView x:Name="ValueListView" Margin="492,232,547,132" Background="White" BorderBrush="White">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="50"/>
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <ListView x:Name="StatusListView" Margin="665,232,374,132" Background="White" BorderBrush="White">
+            <ListView.ItemContainerStyle>
+                <Style TargetType="ListViewItem">
+                    <Setter Property="Height" Value="50" />
+                </Style>
+            </ListView.ItemContainerStyle>
+        </ListView>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="552" Margin="273,232,0,0" VerticalAlignment="Top" Width="47"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="288,244,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 15.png"/>
+        <Image HorizontalAlignment="Left" Height="31" Margin="282,290,0,0" VerticalAlignment="Top" Width="30" Source="img/Layer 16.png"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="287,343,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 19.png"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="284,393,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 20.png"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="284,446,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 21.png"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="270,232,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-1.png"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="270,283,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3.png"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="270,333,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-2.png"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="270,383,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-3.png"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="270,433,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-4.png"/>
+
     </Grid>
 </Window>

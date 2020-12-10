@@ -39,6 +39,9 @@ namespace VerticalRoot
             //Dashboard dash = new Dashboard();
             //dash.Show();
 
+            CropDetail cropdetail = new CropDetail();
+            cropdetail.Show();
+
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 

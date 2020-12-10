@@ -39,7 +39,7 @@
     <Reference Include="Dapper, Version=2.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <HintPath>..\packages\Dapper.2.0.78\lib\net461\Dapper.dll</HintPath>
     </Reference>
-    <Reference Include="MySql.Data, Version=8.0.19.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
+    <Reference Include="MySql.Data, Version=8.0.22.0, Culture=neutral, PublicKeyToken=c5687fc88969c44d, processorArchitecture=MSIL" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
     <Reference Include="System.Drawing" />
@@ -112,6 +112,10 @@
     <Page Include="plantdetail.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="Themes\Generic.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
     </Page>
   </ItemGroup>
   <ItemGroup>
@@ -227,6 +231,50 @@
   </ItemGroup>
   <ItemGroup>
     <Resource Include="Shape 5 normal.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Layer 15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Layer 15.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Layer 16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Layer 19.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Layer 20.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Layer 21.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rectangle 3 copy 3-1.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rectangle 3 copy 3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rectangle 3 copy 3-2.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rectangle 3 copy 3-3.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Rectangle 3 copy 3-4.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="img\Layer 16.png" />
+    <Resource Include="img\Layer 19.png" />
+    <Resource Include="img\Layer 20.png" />
+    <Resource Include="img\Layer 21.png" />
+    <Resource Include="img\Rectangle 3 copy 3-1.png" />
+    <Resource Include="img\Rectangle 3 copy 3-2.png" />
+    <Resource Include="img\Rectangle 3 copy 3-3.png" />
+    <Resource Include="img\Rectangle 3 copy 3-4.png" />
+    <Resource Include="img\Rectangle 3 copy 3.png" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
