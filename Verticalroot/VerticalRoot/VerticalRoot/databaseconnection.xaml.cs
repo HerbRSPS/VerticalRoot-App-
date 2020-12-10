@@ -23,6 +23,50 @@ namespace VerticalRoot
         public databaseconnection()
         {
             InitializeComponent();
+            CheckAmount();
+            
+            
+        }
+
+        public class showTable
+        {
+            public int ID { get; set; }
+            public string Pid { get; set; }
+            public int Name { get; set; }
+          
+
+            public override string ToString()
+            {
+                return this.Name.ToString();
+            }
+        }
+        public void CheckAmount()
+        {
+            try
+            {
+                DB db = new DB();
+                db.openConnection();
+                var conn = db.GetConnection();
+                // get al data from tbl_datadetails
+                string mysql = "SELECT * FROM tbl_datadetails;";
+                MySqlCommand command = new MySqlCommand(mysql, conn);
+
+                //get al data from plantdetails connected to user and clicked plant
+                string selectspecificplant = "SELECT  * FROM tbl_plantdetails WHERE user_id = 2 AND plant_id = 1;"; // 
+                MySqlCommand command2 = new MySqlCommand(selectspecificplant, conn);
+
+                MySqlDataAdapter da = new MySqlDataAdapter(command2);
+                
+
+            }
+            catch (Exception e)
+            {
+                MessageBox.Show(e.Message);
+            }
+           
+        }
+        public void ShowData()
+        {
             try
             {
                 string connectionString = "Server=studmysql01.fhict.local;Uid=dbi467376;Database=dbi467376;Pwd=password123;"; //database server name and mysql port and username and password
@@ -38,8 +82,6 @@ namespace VerticalRoot
 
                 //datatable dt = new datatable();
                 //dt.load(command.executereader());
-                
-
 
                 MySqlDataAdapter da = new MySqlDataAdapter(command);
                 DataTable dtt = new DataTable();
@@ -47,34 +89,52 @@ namespace VerticalRoot
                 DataGrid dg = new DataGrid();
                 dtGrid.ItemsSource = dtt.AsDataView();
 
-                var list = conn.Query<int>("select * from tbl_datadetails").ToList();
+                var list1 = conn.Query<int>("select ldr from tbl_datadetails").ToList();
+                var list2 = conn.Query<int>("select humidity from tbl_datadetails").ToList();
+                var list3 = conn.Query<int>("select celsius from tbl_datadetails").ToList();
+                var list4 = conn.Query<int>("select water_use from tbl_datadetails").ToList();
+                var list5 = conn.Query<int>("select moisture from tbl_datadetails").ToList();
                 //testlist.ItemsSource = list;
 
                 var users = new List<showTable>();
                 //get user id,
 
-                for (int i = 0; i < list.Count; ++i)
+                //for (int i = 0; i < list1.Count; ++i)
+                //{
+                //    users.Add(new showTable {  ID = i, Name = list1[i]});
+                //}
+
+                using (var e1 = list1.GetEnumerator())
+                using (var e2 = list2.GetEnumerator())
+                using (var e3 = list3.GetEnumerator())
+                using (var e4 = list4.GetEnumerator())
+                using (var e5 = list5.GetEnumerator())
                 {
-                    users.Add(new showTable {  ID = i, Name = list[i]});
+                    while (e1.MoveNext() && e2.MoveNext() && e3.MoveNext() && e4.MoveNext() && e5.MoveNext())
+                    {
+                        var item1 = e1.Current;
+                        var item2 = e2.Current;
+                        var item3 = e3.Current;
+                        var item4 = e4.Current;
+                        var item5 = e5.Current;
+                        string k = "-------------------------------";
+                        users.Add(new showTable { ID = item1, Pid = "LDR", Name = item1 });
+                        users.Add(new showTable { ID = item2, Pid = "LDR", Name = item2 });
+                        users.Add(new showTable { ID = item3, Pid = "LDR", Name = item3 });
+                        users.Add(new showTable { ID = item4, Pid = "LDR", Name = item4 });
+                        users.Add(new showTable { ID = item5, Pid = "LDR", Name = item5 });
+                        users.Add(new showTable { Pid = k });
+
+                        // use item1 and item2
+                    }
                 }
                 myListView.ItemsSource = users;
+
 
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
-            }
-            
-        }
-        public class showTable
-        {
-            public int ID { get; set; }
-            public int Name { get; set; }
-            public int Pid { get; set; }
-
-            public override string ToString()
-            {
-                return this.Name.ToString();
             }
         }
 
@@ -88,65 +148,6 @@ namespace VerticalRoot
             // return [uid, pid];
         }
         
-
-
-
-
-        //        DB db = new DB();
-        //        db.openConnection();
-        //            string username = tbUsername.Text;
-        //        string password = tbPassword.Text;
-
-        //        System.Data.DataTable table = new System.Data.DataTable(); // de DataTable hoort zonder de Systen.Data maar dan werkt het niet dus doe ik het even zo.
-
-        //        MySqlDataAdapter adapter = new MySqlDataAdapter();
-        //            try
-        //            {
-        //                // Create Aes that generates a new key and initialization vector (IV).    
-        //                // Same key must be used in encryption and decryption    
-        //                using (AesManaged aes = new AesManaged())
-        //                {
-        //                    byte[] bytes = Encoding.ASCII.GetBytes(password);
-
-        //        // Encrypt string    
-        //        byte[] encryptedpw = Encrypt(password, aes.Key, aes.IV);
-
-        //        MessageBox.Show(System.Text.Encoding.UTF8.GetString(encryptedpw));
-
-        //                    // Decrypt the bytes to a string.   
-
-        //                    string decryptedpw = Decrypt(encryptedpw, aes.Key, aes.IV);
-        //        MessageBox.Show(decryptedpw);
-        //                    password = decryptedpw;
-        //                    // Print decrypted string. It should be same as raw data    
-        //                }
-        //}
-        //            catch (Exception exp)
-        //            {
-        //                MessageBox.Show(exp.Message);
-        //            }
-        //            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE name = @usn and password = @pass", db.GetConnection());
-
-        //command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = username;
-        //            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
-
-        //            adapter.SelectCommand = command;
-
-        //            adapter.Fill(table);
-
-        //            if (table.Rows.Count > 0)
-        //            {
-        //                //MessageBox.Show("YES");
-        //                this.Close();
-
-        //                Dashboard frm2 = new Dashboard();
-
-        //                frm2.Show();
-        //            }
-        //            else
-        //            {
-        //                MessageBox.Show("Verkeerde Inloggegevens");
-        //            }
     }
  
 }

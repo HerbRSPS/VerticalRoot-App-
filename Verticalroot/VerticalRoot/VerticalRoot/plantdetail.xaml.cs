@@ -31,7 +31,7 @@ namespace VerticalRoot
                 DB db = new DB();
                 db.openConnection();
                 InitializeComponent();
-                string mysql = "SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = @pid;";
+                string mysql = "SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = @pid;";  
 
                 
                 MySqlCommand command = new MySqlCommand(mysql, db.GetConnection());

@@ -6,7 +6,7 @@
         xmlns:local="clr-namespace:VerticalRoot"
         mc:Ignorable="d"
         Title="VerticalRoot" Height="944.6" Width="1228.75" Background="#FFF1F5F8" ResizeMode="NoResize">
-    <Grid RenderTransformOrigin="0.835,-0.577">
+    <Grid RenderTransformOrigin="0.835,-0.577" Margin="10,10,0,0">
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="862" Margin="-1,54,0,0" VerticalAlignment="Top" Width="245" Background="#FFFBFBFB"/>
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="1225" Background="#FFFBFBFB" Margin="-1,-1,-1,0">
             <Border.BitmapEffect>
