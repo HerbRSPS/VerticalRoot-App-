@@ -28,33 +28,32 @@ namespace VerticalRoot
             DB word = new DB();
             word.openConnection();
 
-            var poep = word.GetConnection();
-            var list = poep.Query<int>("select * from tbl_datadetails").ToList();
-            var sensorName = new List<showTable>();
-            var value = new List<showTable>();
-            var status = new List<showTable>();
+            var sql = word.GetConnection();
+            var value_celsius = sql.Query<int>("select celsius from tbl_datadetails WHERE plant_id = 1").ToList();
+            var value_ldr = sql.Query<int>("select ldr from tbl_datadetails WHERE plant_id = 1").ToList();
+            var value_humidity = sql.Query<int>("select humidity from tbl_datadetails WHERE plant_id = 1").ToList();
+            var value_moisture = sql.Query<int>("select moisture from tbl_datadetails WHERE plant_id = 1").ToList();
+            var value_water_use = sql.Query<int>("select water_use from tbl_datadetails WHERE plant_id = 1").ToList();
+            var value_list = new List<showTable>();
             //get user id,
 
 
-            for (int i = 0; i < list.Count; ++i)
+            for (int i = 0; i < value_celsius.Count; ++i)
             {
-                sensorName.Add(new showTable { ID = i, Name = list[i] });
+                value_list.Add(new showTable { Name = value_celsius[0] });
+                value_list.Add(new showTable { Name = value_ldr[0] });
+                value_list.Add(new showTable { Name = value_humidity[0] });
+                value_list.Add(new showTable { Name = value_moisture[0] });
+                value_list.Add(new showTable { Name = value_water_use[0] });
             }
 
-            for (int i = 0; i < list.Count; ++i)
-            {
-                value.Add(new showTable { ID = i, Name = list[i] });
-            }
+            //for (int i = 0; i < value_ldr.Count; ++i)
+            //{
+            //}
 
-            for (int i = 0; i < list.Count; ++i)
-            {
-                status.Add(new showTable { ID = i, Name = list[i] });
-            }
+            ValueListView.ItemsSource = value_list;
 
-            TitleListView.ItemsSource = sensorName;
-            ValueListView.ItemsSource = value;
-            StatusListView.ItemsSource = status;
-            
+
         }
 
         public class showTable

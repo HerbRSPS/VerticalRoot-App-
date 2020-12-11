@@ -5,9 +5,9 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:VerticalRoot"
         mc:Ignorable="d"
-        Title="VerticalRoot" Height="944.6" Width="1228.75" Background="#FFF1F5F8" ResizeMode="NoResize">
+        Title="VerticalRoot" Height="945" Width="1229" Background="#FFF1F5F8" ResizeMode="NoResize">
     <Grid RenderTransformOrigin="0.835,-0.577" Margin="10,10,0,0">
-        <Border BorderThickness="1" HorizontalAlignment="Left" Height="862" Margin="-1,54,0,0" VerticalAlignment="Top" Width="245" Background="#FFFBFBFB"/>
+        <Border BorderThickness="1" HorizontalAlignment="Left" Height="862" Margin="-1,44,0,0" VerticalAlignment="Top" Width="245" Background="#FFFBFBFB"/>
         <Border BorderThickness="1" HorizontalAlignment="Left" Height="71" VerticalAlignment="Top" Width="1225" Background="#FFFBFBFB" Margin="-1,-1,-1,0">
             <Border.BitmapEffect>
                 <DropShadowBitmapEffect Color="#FF313131" Direction="270" Softness="1" Opacity="0.08" ShadowDepth="1"/>
@@ -23,17 +23,17 @@
                 <ImageBrush ImageSource="img/PF.jpeg" RenderOptions.BitmapScalingMode="HighQuality"/>
             </Ellipse.Fill>
         </Ellipse>
-        <Image HorizontalAlignment="Left" Height="15" Margin="53,854,0,0" VerticalAlignment="Top" Width="15" Source="img/Layer 6.png" Cursor="Hand" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
-        <Image HorizontalAlignment="Left" Height="24" Margin="45,286,0,0" VerticalAlignment="Top" Width="24" Source="Shape 5 normal.png" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" Cursor="Hand"/>
-        <Image HorizontalAlignment="Left" Height="24" Margin="45,329,0,0" VerticalAlignment="Top" Width="24" Source="Layer 5 selected.png" Stretch="None" Cursor="None" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
-        <Image HorizontalAlignment="Left" Height="24" Margin="0,327,0,0" VerticalAlignment="Top" Width="24" Source="img/Rectangle 7.png" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="15" Margin="50,848,0,0" VerticalAlignment="Top" Width="15" Source="img/Layer 6.png" Cursor="Hand" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="24" Margin="45,281,0,0" VerticalAlignment="Top" Width="24" Source="Shape 5 normal.png" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased" Cursor="Hand"/>
+        <Image HorizontalAlignment="Left" Height="24" Margin="45,324,0,0" VerticalAlignment="Top" Width="24" Source="Layer 5 selected.png" Stretch="None" Cursor="None" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
+        <Image HorizontalAlignment="Left" Height="24" Margin="0,320,0,0" VerticalAlignment="Top" Width="24" Source="img/Rectangle 7.png" Stretch="None" RenderOptions.BitmapScalingMode="NearestNeighbor" RenderOptions.EdgeMode="Aliased"/>
         <Label x:Name="Path" Content="Home/My Crops" HorizontalAlignment="Left" Margin="270,84,0,0" VerticalAlignment="Top" Height="25" Width="387" FontFamily="Work Sans Light" Foreground="#FFD4D4D4"/>
         <Label x:Name="Name" Content="Herb RSPS" HorizontalAlignment="Center" Margin="66,200,1033,680" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
         <Label x:Name="Email" Content="herbrsps@yahoo.com" HorizontalAlignment="Center" Margin="25,221,992,659" VerticalAlignment="Center"  Width="206" FontFamily="Work sans" FontSize="9" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF838383" Height="36"/>
         <Label x:Name="Name_Copy8" MouseLeftButtonUp="Name_Copy8_MouseLeftButtonUp" Content="Dashboard" HorizontalAlignment="Left" Margin="72,282,0,598" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36" Cursor="Hand"/>
         <Label x:Name="Name_Copy9"  Content="My Crops" HorizontalAlignment="Left" Margin="72,323,0,557" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF10CAB7" Height="36" Cursor="None"/>
         <Label x:Name="Name_Copy10" MouseLeftButtonDown="Name_Copy10_MouseLeftButtonDown" Content="Logout" HorizontalAlignment="Center" Margin="72,849,1027,31" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Left" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36" Cursor="Hand"/>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="649" Margin="273,160,0,0" VerticalAlignment="Top" Width="569" Opacity="0.4"/>
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="359" Margin="273,160,0,0" VerticalAlignment="Top" Width="569" Opacity="0.4"/>
         <Label x:Name="Room_Sensors_Title" Content="Crop Sensors" HorizontalAlignment="Left" Margin="285,183,0,697" VerticalAlignment="Center"  Width="124" FontFamily="Work sans" FontSize="16" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
         <TabControl HorizontalAlignment="Left" Height="8" Margin="-285,535,0,0" VerticalAlignment="Top" Width="5">
             <TabItem Header="TabItem">
@@ -43,38 +43,29 @@
                 <Grid Background="#FFE5E5E5"/>
             </TabItem>
         </TabControl>
-        <ListView x:Name="TitleListView" Margin="320,232,719,132" Background="White" BorderBrush="White">
+        <Rectangle Fill="White" HorizontalAlignment="Left" Height="259" Margin="273,224,0,0" VerticalAlignment="Top" Width="569"/>
+        <ListView x:Name="ValueListView" Margin="492,224,547,423" Background="White" BorderBrush="White" FontFamily="Work sans">
             <ListView.ItemContainerStyle>
                 <Style TargetType="ListViewItem">
-                    <Setter Property="Height" Value="50"/>
+                    <Setter Property="Height" Value="49"/>
                 </Style>
             </ListView.ItemContainerStyle>
         </ListView>
-        <ListView x:Name="ValueListView" Margin="492,232,547,132" Background="White" BorderBrush="White">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Height" Value="50"/>
-                </Style>
-            </ListView.ItemContainerStyle>
-        </ListView>
-        <ListView x:Name="StatusListView" Margin="665,232,374,132" Background="White" BorderBrush="White">
-            <ListView.ItemContainerStyle>
-                <Style TargetType="ListViewItem">
-                    <Setter Property="Height" Value="50" />
-                </Style>
-            </ListView.ItemContainerStyle>
-        </ListView>
-        <Rectangle Fill="White" HorizontalAlignment="Left" Height="552" Margin="273,232,0,0" VerticalAlignment="Top" Width="47"/>
-        <Image HorizontalAlignment="Left" Height="28" Margin="288,244,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 15.png"/>
-        <Image HorizontalAlignment="Left" Height="31" Margin="282,290,0,0" VerticalAlignment="Top" Width="30" Source="img/Layer 16.png"/>
-        <Image HorizontalAlignment="Left" Height="28" Margin="287,343,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 19.png"/>
-        <Image HorizontalAlignment="Left" Height="28" Margin="284,393,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 20.png"/>
-        <Image HorizontalAlignment="Left" Height="28" Margin="284,446,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 21.png"/>
-        <Image HorizontalAlignment="Left" Height="47" Margin="270,232,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-1.png"/>
-        <Image HorizontalAlignment="Left" Height="47" Margin="270,283,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3.png"/>
-        <Image HorizontalAlignment="Left" Height="47" Margin="270,333,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-2.png"/>
-        <Image HorizontalAlignment="Left" Height="47" Margin="270,383,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-3.png"/>
-        <Image HorizontalAlignment="Left" Height="47" Margin="270,433,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-4.png"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="288,236,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 15.png"/>
+        <Image HorizontalAlignment="Left" Height="31" Margin="282,282,0,0" VerticalAlignment="Top" Width="30" Source="img/Layer 16.png"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="287,335,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 19.png"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="284,385,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 20.png"/>
+        <Image HorizontalAlignment="Left" Height="28" Margin="284,438,0,0" VerticalAlignment="Top" Width="27" Source="img/Layer 21.png"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="273,224,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-1.png"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="273,275,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3.png"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="273,325,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-2.png"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="273,375,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-3.png"/>
+        <Image HorizontalAlignment="Left" Height="47" Margin="273,425,0,0" VerticalAlignment="Top" Width="3" Source="img/Rectangle 3 copy 3-4.png"/>
+        <Label x:Name="Room_Sensors_Title_Copy" Content="Temperature" HorizontalAlignment="Left" Margin="330,237,0,633" VerticalAlignment="Center"  Width="124" FontFamily="Work sans light" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
+        <Label x:Name="Room_Sensors_Title_Copy1" Content="Light" HorizontalAlignment="Left" Margin="330,287,0,583" VerticalAlignment="Center"  Width="124" FontFamily="Work sans light" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
+        <Label x:Name="Room_Sensors_Title_Copy2" Content="Humidity" HorizontalAlignment="Left" Margin="330,337,0,533" VerticalAlignment="Center"  Width="124" FontFamily="Work sans light" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
+        <Label x:Name="Room_Sensors_Title_Copy3" Content="Soil Moisture" HorizontalAlignment="Left" Margin="330,385,0,485" VerticalAlignment="Center"  Width="124" FontFamily="Work sans light" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
+        <Label x:Name="Room_Sensors_Title_Copy4" Content="Water Flow" HorizontalAlignment="Left" Margin="330,433,0,437" VerticalAlignment="Center"  Width="124" FontFamily="Work sans light" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontWeight="Medium" Foreground="#FF3A3A3A" Height="36"/>
 
     </Grid>
 </Window>
