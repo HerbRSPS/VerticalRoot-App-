@@ -103,14 +103,14 @@ namespace VerticalRoot
             }
         }
 
-        private void Name_Copy8_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Name_Dashboard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Hide();
-            DashboardMyCrops MyCrops = new DashboardMyCrops();
-            MyCrops.Show();
+            Dashboard dash = new Dashboard();
+            dash.Show();
         }
 
-        private void Name_Copy10_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Name_Logout_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
         {
             Hide();
             MainWindow Login = new MainWindow();

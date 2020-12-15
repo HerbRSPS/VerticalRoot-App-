@@ -25,14 +25,14 @@ namespace VerticalRoot
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
 
-        private void Name_Copy8_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void Name_Dashboard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Hide();
             Dashboard dash = new Dashboard();
             dash.Show();
         }
 
-        private void Name_Copy10_MouseLeftButtonDown(object sender, MouseButtonEventArgs e)
+        private void Name_Logout_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Hide();
             MainWindow Login = new MainWindow();
