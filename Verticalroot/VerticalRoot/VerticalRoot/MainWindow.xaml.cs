@@ -32,15 +32,15 @@ namespace VerticalRoot
             InitializeComponent();
             databaseconnection egg = new databaseconnection();
             egg.Show();
-
-            plantdetail p = new plantdetail();
-            p.Show();
+            
+            //plantdetail p = new plantdetail();
+            //p.Show();
 
             //Dashboard dash = new Dashboard();
             //dash.Show();
 
-            CropDetail cropdetail = new CropDetail();
-            cropdetail.Show();
+            //CropDetail cropdetail = new CropDetail();
+            //cropdetail.Show();
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
@@ -49,7 +49,9 @@ namespace VerticalRoot
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            
+
+          
+
             DB db = new DB();
             db.openConnection();
             string username = tbUsername.Text;
@@ -89,6 +91,8 @@ namespace VerticalRoot
                 MessageBox.Show("Verkeerde Inloggegevens");
             }
         }
+
+       
 
         private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
         {

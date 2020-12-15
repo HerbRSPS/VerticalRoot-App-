@@ -48,15 +48,48 @@ namespace VerticalRoot
                 db.openConnection();
                 var conn = db.GetConnection();
                 // get al data from tbl_datadetails
-                string mysql = "SELECT * FROM tbl_datadetails;";
-                MySqlCommand command = new MySqlCommand(mysql, conn);
+                //string mysql = "SELECT * FROM tbl_datadetails WHERE plant_id = 1;";
+                //MySqlCommand command = new MySqlCommand(mysql, conn);
 
                 //get al data from plantdetails connected to user and clicked plant
-                string selectspecificplant = "SELECT  * FROM tbl_plantdetails WHERE user_id = 2 AND plant_id = 1;"; // 
-                MySqlCommand command2 = new MySqlCommand(selectspecificplant, conn);
+                string selectPlant = "SELECT set_celsius FROM tbl_plantdetails WHERE user_id = 2 AND plant_id = 1;"
+                    + "SELECT celsius FROM tbl_datadetails WHERE plant_id = 1;"; // 
 
-                MySqlDataAdapter da = new MySqlDataAdapter(command2);
-                
+                MySqlCommand command2 = new MySqlCommand(selectPlant, conn);
+       
+
+                //if the user data.celsius > command2.celsuis
+                using (MySqlDataReader plantValues = command2.ExecuteReader())
+                //using (MySqlDataReader currentValues = command.ExecuteReader())
+                {
+                    //int currentPlantldr = Convert.ToInt32(currentValues["ldr"]);
+                    if (plantValues.HasRows)
+                    {
+                        while (plantValues.Read())
+                        {
+                            int currentPlantCelsius = plantValues.GetInt32(0);
+
+                            int setPlantCelsius = plantValues.GetInt32(1);
+                            //int currentPlantCelius = Convert.ToInt32(setValues["celsius"]);
+
+                            if (currentPlantCelsius > setPlantCelsius)
+                            {
+                                MessageBox.Show("YES");
+                            }
+                            else
+                            {
+                                MessageBox.Show("nah lol");
+
+                            }
+                        }
+                    }
+                   
+                  
+                }
+          
+
+
+
 
             }
             catch (Exception e)
@@ -64,6 +97,11 @@ namespace VerticalRoot
                 MessageBox.Show(e.Message);
             }
            
+        }
+        public class PlantDetails
+        {
+            public int Col1 { get; set; }
+            public int Col2 { get; set; }
         }
         public void ShowData()
         {
