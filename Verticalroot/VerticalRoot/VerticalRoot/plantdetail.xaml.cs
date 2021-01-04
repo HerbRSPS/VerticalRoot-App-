@@ -21,19 +21,20 @@ namespace VerticalRoot
     /// </summary>
     public partial class plantdetail : Window
     {
+        public int index { get; private set; }
+
         public plantdetail()
         {
-            string uid = "2";
-            string pid = "1";
+            InitializeComponent();
+
             try
             {
-
                 DB db = new DB();
                 db.openConnection();
-                InitializeComponent();
-                string mysql = "SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = @pid;";  
+                string uid = "2";
+                string pid = "1";
+                string mysql = "SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = @pid;";
 
-                
                 MySqlCommand command = new MySqlCommand(mysql, db.GetConnection());
                 command.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
                 command.Parameters.Add("@pid", MySqlDbType.VarChar).Value = pid;
@@ -42,20 +43,15 @@ namespace VerticalRoot
                 da.Fill(dtt);
                 DataGrid dg = new DataGrid();
                 dt_plantdetail.ItemsSource = dtt.AsDataView();
-                
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
-        }
 
-        private void Dt_plantdetail_SelectionChanged(object sender, SelectionChangedEventArgs e)
-        {
+
 
         }
-
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
             foreach (DataRowView row in dt_plantdetail.SelectedItems)
@@ -74,8 +70,6 @@ namespace VerticalRoot
                 dt_plantdetail.Items.Refresh();
                 MessageBox.Show(Query);
             }
-
-
         }
     }
 }

@@ -22,82 +22,78 @@ namespace VerticalRoot
     /// <summary>
     /// Interaction logic for MainWindow.xaml
     /// </summary>
-    public partial class MainWindow: Window
+    public partial class MainWindow : Window
     {
         //MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=mysql");
-        //dit staat ook in de class.
         public MainWindow()
         {
+
             this.Title = "Login";
             InitializeComponent();
             databaseconnection egg = new databaseconnection();
             egg.Show();
-            
-            //plantdetail p = new plantdetail();
-            //p.Show();
 
-            //Dashboard dash = new Dashboard();
+            plantdetail p = new plantdetail();
+            p.Show();
+
+            Dashboard dash = new Dashboard();
             //dash.Show();
 
-            //CropDetail cropdetail = new CropDetail();
-            //cropdetail.Show();
+            CropDetail cropdetail = new CropDetail();
+            cropdetail.Show();
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+
+
+            //tbUsername.Text = "Enter text here...";
+
+            //tbUsername.GotFocus += GotFocus.EventHandle(RemoveText);
+            //tbUsername.LostFocus += LostFocus.EventHandle(AddText);
         }
-
-
+        //public void RemoveText(object sender, EventArgs e)
+        //{
+        //    if (tbUsername.Text == "Enter text here...")
+        //    {
+        //        tbUsername.Text = "";
+        //    }
+        //}
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-
-          
-
             DB db = new DB();
             db.openConnection();
-            string username = tbUsername.Text;
-            string password = tbPassword.Text;
+            //string username = tbUsername.Text;
+            //string password = tbPassword.Text;
 
-            System.Data.DataTable table = new System.Data.DataTable(); // de DataTable hoort zonder de Systen.Data maar dan werkt het niet dus doe ik het even zo.
+            System.Data.DataTable table = new System.Data.DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
 
-            ///////////////////////////////////////////////////////////////////////////////
-            // Create sha256 hash
-            
-
-
-
             MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE name = @usn and password = @pass", db.GetConnection());
 
-            command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = username;
-            command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
-            
+            //command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = username;
+            //command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
+
             adapter.SelectCommand = command;
 
             adapter.Fill(table);
-           
+
             if (table.Rows.Count > 0)
             {
-                //MessageBox.Show("YES");
                 this.Close();
-
                 Dashboard frm2 = new Dashboard();
-
                 frm2.Show();
             }
             else
             {
                 MessageBox.Show("Verkeerde Inloggegevens");
             }
+
         }
 
-       
-
-        private void TextBox_TextChanged(object sender, TextChangedEventArgs e)
+        private void SearchTermTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
         }
-       
-      
     }
 }

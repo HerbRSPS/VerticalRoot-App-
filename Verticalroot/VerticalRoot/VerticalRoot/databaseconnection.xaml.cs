@@ -24,8 +24,8 @@ namespace VerticalRoot
         {
             InitializeComponent();
             CheckAmount();
-            
-            
+
+
         }
 
         public class showTable
@@ -33,7 +33,7 @@ namespace VerticalRoot
             public int ID { get; set; }
             public string Pid { get; set; }
             public int Name { get; set; }
-          
+
 
             public override string ToString()
             {
@@ -46,57 +46,60 @@ namespace VerticalRoot
             {
                 DB db = new DB();
                 db.openConnection();
-                db.getAllPlants(1);
-                // get al data from tbl_datadetails
-                //string mysql = "SELECT * FROM tbl_datadetails WHERE plant_id = 1;";
-                //MySqlCommand command = new MySqlCommand(mysql, conn);
+                MySqlCommand a = db.getAllPlants(1);
+                using (MySqlDataReader plantValues = a.ExecuteReader())
+                {
+                    // get al data from tbl_datadetails
+                    //string mysql = "SELECT * FROM tbl_datadetails WHERE plant_id = 1;";
+                    //MySqlCommand command = new MySqlCommand(mysql, conn);
 
-                //get al data from plantdetails connected to user and clicked plant
-                
-
-               
-       
-
-                //if the user data.celsius > command2.celsuis
-                //using (MySqlDataReader plantValues = command2.ExecuteReader())
-                ////using (MySqlDataReader currentValues = command.ExecuteReader())
-                //{
-                //    //int currentPlantldr = Convert.ToInt32(currentValues["ldr"]);
-                //    if (plantValues.HasRows)
-                //    {
-                //        while (plantValues.Read())
-                //        {
-                //            int currentPlantCelsius = plantValues.GetInt32(0);
-
-                //            int setPlantCelsius = plantValues.GetInt32(0);
-                //            //int currentPlantCelius = Convert.ToInt32(setValues["celsius"]);
-
-                //            if (currentPlantCelsius < setPlantCelsius)
-                //            {
-                //                //MessageBox.Show(currentPlantCelsius.ToString());
-                //                //MessageBox.Show(setPlantCelsius.ToString());
-                //            }
-                //            else
-                //            {
-                //                //MessageBox.Show("nah lol");
-
-                //            }
-                //        }
-                //    }
-                   
-                  
-                //}
-          
+                    //get al data from plantdetails connected to user and clicked plant
 
 
 
 
+
+                    //if the user data.celsius > command2.celsuis
+                    //using (MySqlDataReader plantValues = command2.ExecuteReader())
+                    ////using (MySqlDataReader currentValues = command.ExecuteReader())
+                    //{
+                    //int currentPlantldr = Convert.ToInt32(currentValues["ldr"]);
+                    if (plantValues.HasRows)
+                    {
+                        while (plantValues.Read())
+                        {
+                            int currentPlantCelsius = plantValues.GetInt32(0);
+
+                            int setPlantCelsius = plantValues.GetInt32(0);
+                            //int currentPlantCelius = Convert.ToInt32(setValues["celsius"]);
+
+                            if (currentPlantCelsius < setPlantCelsius)
+                            {
+                                //MessageBox.Show(currentPlantCelsius.ToString());
+                                //MessageBox.Show(setPlantCelsius.ToString());
+                            }
+                            else
+                            {
+                                //MessageBox.Show("nah lol");
+
+                            }
+                        }
+                    }
+
+
+                    //}
+
+
+
+
+
+                }
             }
             catch (Exception e)
             {
                 MessageBox.Show(e.Message);
             }
-           
+
         }
         public class PlantDetails
         {
@@ -185,7 +188,7 @@ namespace VerticalRoot
             //stuur door naar de nieuwe form
             // return [uid, pid];
         }
-        
+
     }
- 
+
 }

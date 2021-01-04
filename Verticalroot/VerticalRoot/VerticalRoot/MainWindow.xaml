@@ -68,19 +68,6 @@
         <Grid.Background>
             <ImageBrush ImageSource="Untitled-1.png"/>
         </Grid.Background>
-        <TextBox x:Name="tbUsername" Height="26.4" Margin="296,189,292.6,205" TextWrapping="Wrap" Text="Username" Width="205" Background="White" VerticalContentAlignment="Center" FontSize="14" AutomationProperties.Name="tbUsername" TextChanged="TextBox_TextChanged">
-            <TextBox.BindingGroup>
-                <BindingGroup/>
-            </TextBox.BindingGroup>
-            <TextBox.BorderBrush>
-                <ImageBrush/>
-            </TextBox.BorderBrush>
-        </TextBox>
-        <TextBox x:Name="tbPassword" Height="26.4" Margin="296,233,292.6,161" TextWrapping="Wrap" Text="Password" Width="205" Background="White" VerticalContentAlignment="Center" FontSize="14" AutomationProperties.Name="tbPassword">
-            <TextBox.BorderBrush>
-                <ImageBrush/>
-            </TextBox.BorderBrush>
-        </TextBox>
         <Button Content="Login" Margin="315.8,307.2,314.4,81" Background="#FF32C2A4" Click="Button_Click" AutomationProperties.Name="btnLogin" UseLayoutRounding="False" BorderThickness="1" Cursor="Hand" Style="{DynamicResource `RoundedButton}">
             <Button.BitmapEffect>
                 <DropShadowBitmapEffect Color="Black" Direction="320" Softness="0.01" Opacity=".5" ShadowDepth="4" />
@@ -89,6 +76,31 @@
                 <ImageBrush/>
             </Button.BorderBrush>
         </Button>
-        <Image HorizontalAlignment="Left" Height="100" Margin="114,191,0,0" VerticalAlignment="Top" Width="100"/>
+        <TextBox  Width="205"  VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="tbUsername2" Margin="296,191,0,205" TextChanged="SearchTermTextBox_TextChanged" Height="26" BorderThickness="0" FontSize="16"/>
+        <TextBlock IsHitTestVisible="False" Text="Username" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="296,193,0,207" Foreground="DarkGray" Height="25" Width="205" FontSize="16">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=tbUsername2}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
+        <TextBox  Width="207"  VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="tbPassword2" Margin="296,236,0,162" Height="27" BorderThickness="0" FontSize="16"/>
+        <TextBlock IsHitTestVisible="False" Text="Password" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="296,236,0,162" Foreground="DarkGray" Height="27" Width="209" FontSize="16">
+            <TextBlock.Style>
+                <Style TargetType="{x:Type TextBlock}">
+                    <Setter Property="Visibility" Value="Collapsed"/>
+                    <Style.Triggers>
+                        <DataTrigger Binding="{Binding Text, ElementName=tbPassword2}" Value="">
+                            <Setter Property="Visibility" Value="Visible"/>
+                        </DataTrigger>
+                    </Style.Triggers>
+                </Style>
+            </TextBlock.Style>
+        </TextBlock>
     </Grid>
 </Window>

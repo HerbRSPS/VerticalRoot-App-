@@ -35,12 +35,12 @@ namespace VerticalRoot
             return connection;
         }
         //get all the plants connected to the given user
-        public MySqlDataAdapter getAllPlants(int id)
+        public MySqlCommand getAllPlants(int id)
         {
             string selectedPlant = "SELECT * FROM tbl_datadetails WHERE plant_id = 1;";
             MySqlCommand command = new MySqlCommand(selectedPlant, this.connection);
-            MySqlDataAdapter da = new MySqlDataAdapter(command);
-            return da;
+            //MySqlDataAdapter da = new MySqlDataAdapter(command);
+            return command;
         }
 
         //get all the plantsdetails(with gesette waardes) for the user and specific clicked plant.
