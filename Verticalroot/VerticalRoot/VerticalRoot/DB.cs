@@ -16,6 +16,7 @@ namespace VerticalRoot
 
         public void openConnection()
         {
+            
             if (connection.State == System.Data.ConnectionState.Closed)
             {
                 connection.Open();
@@ -33,5 +34,23 @@ namespace VerticalRoot
         {
             return connection;
         }
+        //get all the plants connected to the given user
+        public MySqlDataAdapter getAllPlants(int id)
+        {
+            string selectedPlant = "SELECT * FROM tbl_datadetails WHERE plant_id = 1;";
+            MySqlCommand command = new MySqlCommand(selectedPlant, this.connection);
+            MySqlDataAdapter da = new MySqlDataAdapter(command);
+            return da;
+        }
+
+        //get all the plantsdetails(with gesette waardes) for the user and specific clicked plant.
+        public void getAllPlantDetails(int id, int plant_id)
+        {
+            string selectPlant = "SELECT * FROM tbl_plantdetails WHERE user_id = 2 AND plant_id = 1;";
+                    
+
+            MySqlCommand command2 = new MySqlCommand(selectPlant, this.connection);
+        }
+
     }
 }

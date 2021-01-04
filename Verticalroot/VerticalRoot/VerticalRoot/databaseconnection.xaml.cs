@@ -46,46 +46,46 @@ namespace VerticalRoot
             {
                 DB db = new DB();
                 db.openConnection();
-                var conn = db.GetConnection();
+                db.getAllPlants(1);
                 // get al data from tbl_datadetails
                 //string mysql = "SELECT * FROM tbl_datadetails WHERE plant_id = 1;";
                 //MySqlCommand command = new MySqlCommand(mysql, conn);
 
                 //get al data from plantdetails connected to user and clicked plant
-                string selectPlant = "SELECT set_celsius FROM tbl_plantdetails WHERE user_id = 2 AND plant_id = 1;"
-                    + "SELECT celsius FROM tbl_datadetails WHERE plant_id = 1;"; // 
+                
 
-                MySqlCommand command2 = new MySqlCommand(selectPlant, conn);
+               
        
 
                 //if the user data.celsius > command2.celsuis
-                using (MySqlDataReader plantValues = command2.ExecuteReader())
-                //using (MySqlDataReader currentValues = command.ExecuteReader())
-                {
-                    //int currentPlantldr = Convert.ToInt32(currentValues["ldr"]);
-                    if (plantValues.HasRows)
-                    {
-                        while (plantValues.Read())
-                        {
-                            int currentPlantCelsius = plantValues.GetInt32(0);
+                //using (MySqlDataReader plantValues = command2.ExecuteReader())
+                ////using (MySqlDataReader currentValues = command.ExecuteReader())
+                //{
+                //    //int currentPlantldr = Convert.ToInt32(currentValues["ldr"]);
+                //    if (plantValues.HasRows)
+                //    {
+                //        while (plantValues.Read())
+                //        {
+                //            int currentPlantCelsius = plantValues.GetInt32(0);
 
-                            int setPlantCelsius = plantValues.GetInt32(1);
-                            //int currentPlantCelius = Convert.ToInt32(setValues["celsius"]);
+                //            int setPlantCelsius = plantValues.GetInt32(0);
+                //            //int currentPlantCelius = Convert.ToInt32(setValues["celsius"]);
 
-                            if (currentPlantCelsius > setPlantCelsius)
-                            {
-                                MessageBox.Show("YES");
-                            }
-                            else
-                            {
-                                MessageBox.Show("nah lol");
+                //            if (currentPlantCelsius < setPlantCelsius)
+                //            {
+                //                //MessageBox.Show(currentPlantCelsius.ToString());
+                //                //MessageBox.Show(setPlantCelsius.ToString());
+                //            }
+                //            else
+                //            {
+                //                //MessageBox.Show("nah lol");
 
-                            }
-                        }
-                    }
+                //            }
+                //        }
+                //    }
                    
                   
-                }
+                //}
           
 
 

@@ -56,7 +56,6 @@ namespace VerticalRoot
             db.openConnection();
             string username = tbUsername.Text;
             string password = tbPassword.Text;
-            string pwd = "$2y$10$TzCGWCoS4VY69rFm54g00e1E8A8GGwB6MVlv3SGK7u4K.i7Oc53QS";
 
             System.Data.DataTable table = new System.Data.DataTable(); // de DataTable hoort zonder de Systen.Data maar dan werkt het niet dus doe ik het even zo.
 
