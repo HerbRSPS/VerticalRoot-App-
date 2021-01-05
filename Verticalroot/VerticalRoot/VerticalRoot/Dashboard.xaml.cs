@@ -24,15 +24,12 @@ namespace VerticalRoot
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
-
         private void Name_Copy9_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Hide();
             DashboardMyCrops MyCrops = new DashboardMyCrops();
             MyCrops.Show();
-
         }
-
         private void Name_Copy10_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Hide();
