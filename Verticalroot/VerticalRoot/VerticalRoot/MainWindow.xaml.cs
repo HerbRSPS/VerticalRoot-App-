@@ -24,23 +24,24 @@ namespace VerticalRoot
     /// </summary>
     public partial class MainWindow : Window
     {
-        //MySqlConnection connection = new MySqlConnection("server=localhost;port=3306;username=root;password=;database=mysql");
         public MainWindow()
         {
 
             this.Title = "Login";
             InitializeComponent();
-            databaseconnection egg = new databaseconnection();
-            egg.Show();
 
-            plantdetail p = new plantdetail();
-            p.Show();
+            //OPENING FORMS FOR TESTING
+           // databaseconnection egg = new databaseconnection();
+           // egg.Show();
 
-            Dashboard dash = new Dashboard();
+            //plantdetail p = new plantdetail();
+            //p.Show();
+
+            //Dashboard dash = new Dashboard();
             //dash.Show();
 
-            CropDetail cropdetail = new CropDetail();
-            cropdetail.Show();
+            //CropDetail cropdetail = new CropDetail();
+            //cropdetail.Show();
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
@@ -60,34 +61,28 @@ namespace VerticalRoot
 
         private void Button_Click(object sender, RoutedEventArgs e)
         {
-            DB db = new DB();
-            db.openConnection();
-            //string username = tbUsername.Text;
-            //string password = tbPassword.Text;
+            string username = tbUsername2.Text;
+            string password = tbPassword2.Text;
+            Login login = new Login();
+            login.checkLogin(username, password);
 
-            System.Data.DataTable table = new System.Data.DataTable();
 
-            MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE name = @usn and password = @pass", db.GetConnection());
-
-            //command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = username;
-            //command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = password;
-
-            adapter.SelectCommand = command;
-
-            adapter.Fill(table);
-
-            if (table.Rows.Count > 0)
+            //if login is succesfull
+            if (true)
             {
-                this.Close();
-                Dashboard frm2 = new Dashboard();
-                frm2.Show();
+                MainWindow mnwindow = new MainWindow();
+                mnwindow.Close();
+                Dashboard dash = new Dashboard();
+                dash.Show();
             }
-            else
+            //if login is onsuccesfull
+            if (false)
             {
-                MessageBox.Show("Verkeerde Inloggegevens");
+                MessageBox.Show("Login unsuccessfull, please try again");
+
             }
+
+       
 
         }
 

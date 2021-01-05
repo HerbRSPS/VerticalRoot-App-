@@ -10,8 +10,9 @@ namespace VerticalRoot
 {
     class Login
     {
-        public void checkLogin(string usr, string pwd)
+        public bool checkLogin(string usr, string pwd)
         {
+            bool success = false;
             DB db = new DB();
             db.openConnection();
             System.Data.DataTable table = new System.Data.DataTable();
@@ -29,14 +30,11 @@ namespace VerticalRoot
 
             if (table.Rows.Count > 0)
             {
-                MainWindow login = new MainWindow();
-                login.Close();
-                Dashboard dash = new Dashboard();
-                dash.Show();
+                return true;
             }
             else
             {
-                MessageBox.Show("Verkeerde Inloggegevens");
+                return false;
             }
         }
     }
