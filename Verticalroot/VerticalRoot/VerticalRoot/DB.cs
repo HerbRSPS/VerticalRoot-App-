@@ -13,7 +13,6 @@ namespace VerticalRoot
 
         MySqlConnection connection = new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi467376;Database=dbi467376;Pwd=password123;");
 
-
         public void openConnection()
         {
             
