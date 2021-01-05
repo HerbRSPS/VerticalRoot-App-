@@ -29,11 +29,16 @@ namespace VerticalRoot
             InitializeComponent();
             cropList.SensorQuery();
             ValueListView.ItemsSource = cropList.getValuesByPlantId(id);
-            temperatureLabel.Content = cropList.StatusChecker(id, StatusType.Temperature);
-            lightLabel.Content = cropList.StatusChecker(id, StatusType.LDR);
-            humidityLabel.Content = cropList.StatusChecker(id, StatusType.Humidity);
-            soilMoistureLabel.Content = cropList.StatusChecker(id, StatusType.Moisture);
-            waterFlowLabel.Content = cropList.StatusChecker(id, StatusType.WaterFlow);
+            // temperatureLabel.Content = 
+            cropList.StatusChecker(id, StatusType.Temperature, temperatureLabel);
+            // lightLabel.Content = 
+            cropList.StatusChecker(id, StatusType.LDR, lightLabel);
+            //humidityLabel.Content = 
+            cropList.StatusChecker(id, StatusType.Humidity, humidityLabel);
+            // soilMoistureLabel.Content = 
+            cropList.StatusChecker(id, StatusType.Moisture, soilMoistureLabel);
+            // waterFlowLabel.Content = 
+            cropList.StatusChecker(id, StatusType.WaterFlow, waterFlowLabel);
             ValueListView.Items.Refresh();
         }
         public static object Current { get; internal set; }

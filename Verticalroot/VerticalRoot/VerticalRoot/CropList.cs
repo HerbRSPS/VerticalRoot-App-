@@ -1,10 +1,16 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Drawing;
 using System.Linq;
+using System.Media;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Dapper;
+using Google.Protobuf.Reflection;
+using Brush = System.Windows.Media.Brush;
+using Brushes = System.Windows.Media.Brushes;
 
 namespace VerticalRoot
 {
@@ -97,7 +103,6 @@ namespace VerticalRoot
             {
                 if (vCrop.plantId == id)
                 {
-
                     return vCrop;
                 }
             }
@@ -120,7 +125,7 @@ namespace VerticalRoot
         /// <param name="id">plant id</param>
         /// <param name="type"> a statusType enum</param>
         /// <returns>correct label string for the specified type</returns>
-        public string StatusChecker(int id, StatusType type)
+        public void StatusChecker(int id, StatusType type,System.Windows.Controls.Label xLabel)
         {
             string toReturn = "";
             Crop myCrop = this.getByPlantId(id);
@@ -142,7 +147,10 @@ namespace VerticalRoot
                     toReturn = StatusWaterFlow(myCrop);
                     break;
             }
-            return toReturn;
+
+            if (toReturn == "Perfect!")
+                xLabel.Foreground = Brushes.ForestGreen;
+            xLabel.Content = toReturn;
         }
 
         /// <summary>
@@ -152,23 +160,23 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusWaterFlow(Crop myCrop)
         {
-            if (myCrop.water_flowStatus != 20)
+            if (myCrop.water_flowStatus != 4)
             {
-                //temp is not 20 degrees
-                if (myCrop.water_flowStatus < 20)
+                //temp is not 4 L/H
+                if (myCrop.water_flowStatus < 4)
                 {
-                    //temp is under 20
-                    int valueDifference1 = 20 - myCrop.water_flowStatus;
+                    //temp is under 4
+                    int valueDifference1 = 4 - myCrop.water_flowStatus;
                     return "Your Water flow is to slow! Add " + valueDifference1 + "L/H";
                 }
-                else if (myCrop.water_flowStatus > 20)
+                else if (myCrop.water_flowStatus > 4)
                 {
-                    //temp is above 20
-                    int valueDifference2 = myCrop.water_flowStatus - 20;
+                    //temp is above 4
+                    int valueDifference2 = myCrop.water_flowStatus - 4;
                     return "Your Water flow is to fast! Lower " + valueDifference2 + "L/H";
                 }
             }
-            //temp == 20
+            //temp == 4
             return "Perfect!";
         }
 
@@ -179,23 +187,23 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusMoisture(Crop myCrop)
         {
-            if (myCrop.moistureStatus != 20)
+            if (myCrop.moistureStatus != 40)
             {
-                //temp is not 20 degrees
-                if (myCrop.moistureStatus < 20)
+                //temp is not 40 %
+                if (myCrop.moistureStatus < 40)
                 {
-                    //temp is under 20
-                    int valueDifference1 = 20 - myCrop.moistureStatus;
+                    //temp is under 40
+                    int valueDifference1 = 40 - myCrop.moistureStatus;
                     return "Your moisture is to low! Add " + valueDifference1 + "%";
                 }
-                else if (myCrop.moistureStatus > 20)
+                else if (myCrop.moistureStatus > 40)
                 {
-                    //temp is above 20
-                    int valueDifference2 = myCrop.moistureStatus - 20;
+                    //temp is above 40
+                    int valueDifference2 = myCrop.moistureStatus - 40;
                     return "Your moisture is to high! Lower " + valueDifference2 + "%";
                 }
             }
-            //temp == 20
+            //temp == 40
             return "Perfect!";
         }
 
@@ -208,21 +216,21 @@ namespace VerticalRoot
         {
             if (myCrop.ldrStatus != 20000)
             {
-                //temp is not 20 degrees
+                //temp is not 20000 LX
                 if (myCrop.ldrStatus < 20000)
                 {
-                    //temp is under 20
+                    //temp is under 20000
                     int valueDifference1 = 20000 - myCrop.ldrStatus;
                     return "Your LDR is to low! Add " + valueDifference1 + "LUX";
                 }
                 else if (myCrop.ldrStatus > 20000)
                 {
-                    //temp is above 20
+                    //temp is above 20000
                     int valueDifference2 = myCrop.ldrStatus - 20000;
                     return "Your LDR is to high! Lower " + valueDifference2 + "LUX";
                 }
             }
-            //temp == 20
+            //temp == 20000
             return "Perfect!";
         }
 
@@ -233,23 +241,23 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusHumidity(Crop myCrop)
         {
-            if (myCrop.humidityStatus != 20)
+            if (myCrop.humidityStatus != 60)
             {
-                //temp is not 20 degrees
-                if (myCrop.humidityStatus < 20)
+                //temp is not 60%
+                if (myCrop.humidityStatus < 60)
                 {
-                    //temp is under 20
-                    int valueDifference1 = 20 - myCrop.humidityStatus;
+                    //temp is under 60
+                    int valueDifference1 = 60 - myCrop.humidityStatus;
                     return "Your humidity is to low! Add " + valueDifference1 + "%";
                 }
-                else if (myCrop.humidityStatus > 20)
+                else if (myCrop.humidityStatus > 60)
                 {
-                    //temp is above 20
-                    int valueDifference2 = myCrop.humidityStatus - 20;
+                    //temp is above 60
+                    int valueDifference2 = myCrop.humidityStatus - 60;
                     return "Your humidity is to high! Lower " + valueDifference2 + "%";
                 }
             }
-            //temp == 20
+            //temp == 60
             return "Perfect!";
         }
 
@@ -260,23 +268,23 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusTemperature(Crop myCrop)
         {
-            if (myCrop.temperatureStatus != 20)
+            if (myCrop.temperatureStatus != 15)
             {
-                //temp is not 20 degrees
-                if (myCrop.temperatureStatus < 20)
+                //temp is not 15 degrees
+                if (myCrop.temperatureStatus < 15)
                 {
-                    //temp is under 20
-                    int valueDifference1 = 20 - myCrop.temperatureStatus;
+                    //temp is under 15
+                    int valueDifference1 = 15 - myCrop.temperatureStatus;
                     return "Your temperature is to low! Add " + valueDifference1 + "°";
                 }
-                else if (myCrop.temperatureStatus > 20)
+                else if (myCrop.temperatureStatus > 15)
                 {
-                    //temp is above 20
-                    int valueDifference2 = myCrop.temperatureStatus - 20;
+                    //temp is above 15
+                    int valueDifference2 = myCrop.temperatureStatus - 15;
                     return "Your temperature is to high! Lower " + valueDifference2 + "°";
                 }
             }
-            //temp == 20
+            //temp == 15
             return "Perfect!";
         }
     }
