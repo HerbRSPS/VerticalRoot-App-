@@ -46,45 +46,94 @@ namespace VerticalRoot
             {
                 DB db = new DB();
                 db.openConnection();
-                MySqlCommand a = db.getAllPlants(1);
-                using (MySqlDataReader plantValues = a.ExecuteReader())
+                List<int> currentPlantValues = db.getAllPlants(1);
+                List<int> SetplantValues = db.getAllPlantDetails(2, 2);
+               
+                //checking the  ldr
+                if(currentPlantValues[1] == SetplantValues[1])
                 {
-                    // get al data from tbl_datadetails
-                    //string mysql = "SELECT * FROM tbl_datadetails WHERE plant_id = 1;";
-                    //MySqlCommand command = new MySqlCommand(mysql, conn);
+                    System.Windows.Forms.MessageBox.Show("Tes555555t");
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Test");
+                } 
+                //checking the  Humidty
+                if(currentPlantValues[2] == SetplantValues[2])
+                {
+                    System.Windows.Forms.MessageBox.Show("Tes555555t");
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Test");
+                }
+                //checking the  celsius
+                if(currentPlantValues[3] == SetplantValues[3])
+                {
+                    System.Windows.Forms.MessageBox.Show("Tes555555t");
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Test");
+                } 
+                //checking the  water_use
+                if(currentPlantValues[4] == SetplantValues[4])
+                {
+                    System.Windows.Forms.MessageBox.Show("Tes555555t");
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Test");
+                } 
+                //checking the moisture
+                if(currentPlantValues[5] == SetplantValues[5])
+                {
+                    System.Windows.Forms.MessageBox.Show("Tes555555t");
+                }
+                else
+                {
+                    System.Windows.Forms.MessageBox.Show("Test");
+                }
+                //using (MySqlDataReader plantValues = a.ExecuteReader())
+                //{
+                //    // get al data from tbl_datadetails
+                //    //string mysql = "SELECT * FROM tbl_datadetails WHERE plant_id = 1;";
+                //    //MySqlCommand command = new MySqlCommand(mysql, conn);
 
-                    //get al data from plantdetails connected to user and clicked plant
+                //    //get al data from plantdetails connected to user and clicked plant
 
 
 
 
 
-                    //if the user data.celsius > command2.celsuis
-                    //using (MySqlDataReader plantValues = command2.ExecuteReader())
-                    ////using (MySqlDataReader currentValues = command.ExecuteReader())
-                    //{
-                    //int currentPlantldr = Convert.ToInt32(currentValues["ldr"]);
-                    if (plantValues.HasRows)
-                    {
-                        while (plantValues.Read())
-                        {
-                            int currentPlantCelsius = plantValues.GetInt32(0);
+                //    //if the user data.celsius > command2.celsuis
+                //    //using (MySqlDataReader plantValues = command2.ExecuteReader())
+                //    ////using (MySqlDataReader currentValues = command.ExecuteReader())
+                //    //{
+                //    //int currentPlantldr = Convert.ToInt32(currentValues["ldr"]);
+                //    if (plantValues.HasRows)
+                //    {
+                //        while (plantValues.Read())
+                //        {
+                //            int currentSetPlantValues = Convert.ToInt32(currentValues["set_celsius"]);
+                //            int currentPlantCelsius = Convert.ToInt32(plantValues["celsius"]);
 
-                            int setPlantCelsius = plantValues.GetInt32(0);
-                            //int currentPlantCelius = Convert.ToInt32(setValues["celsius"]);
+                //            //int setPlantCelsius = plantValues.GetInt32(0);
+                //            //int currentPlantCelius = Convert.ToInt32(setValues["celsius"]);
 
-                            if (currentPlantCelsius < setPlantCelsius)
-                            {
-                                //MessageBox.Show(currentPlantCelsius.ToString());
-                                //MessageBox.Show(setPlantCelsius.ToString());
-                            }
-                            else
-                            {
-                                //MessageBox.Show("nah lol");
+                //            if (currentPlantCelsius < currentSetPlantValues)
+                //            {
+                //                System.Windows.Forms.MessageBox.Show("werkt");
+                //                //MessageBox.Show(currentPlantCelsius.ToString());
+                //                //MessageBox.Show(setPlantCelsius.ToString());
+                //            }
+                //            else
+                //            {
+                //                MessageBox.Show("nah lol");
 
-                            }
-                        }
-                    }
+                //            }
+                //        }
+                //    }
 
 
                     //}
@@ -93,7 +142,7 @@ namespace VerticalRoot
 
 
 
-                }
+                //}
             }
             catch (Exception e)
             {

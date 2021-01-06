@@ -26,7 +26,8 @@ namespace VerticalRoot
     {
         public MainWindow()
         {
-
+            databaseconnection d = new databaseconnection();
+            d.Show();
             this.Title = "Login";
             InitializeComponent();
 
