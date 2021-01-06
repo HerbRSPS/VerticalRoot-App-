@@ -29,15 +29,10 @@ namespace VerticalRoot
             InitializeComponent();
             cropList.SensorQuery();
             ValueListView.ItemsSource = cropList.getValuesByPlantId(id);
-            // temperatureLabel.Content = 
             cropList.StatusChecker(id, StatusType.Temperature, temperatureLabel);
-            // lightLabel.Content = 
             cropList.StatusChecker(id, StatusType.LDR, lightLabel);
-            //humidityLabel.Content = 
             cropList.StatusChecker(id, StatusType.Humidity, humidityLabel);
-            // soilMoistureLabel.Content = 
             cropList.StatusChecker(id, StatusType.Moisture, soilMoistureLabel);
-            // waterFlowLabel.Content = 
             cropList.StatusChecker(id, StatusType.WaterFlow, waterFlowLabel);
             ValueListView.Items.Refresh();
         }

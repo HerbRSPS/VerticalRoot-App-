@@ -23,11 +23,9 @@ namespace VerticalRoot
         public databaseconnection()
         {
             InitializeComponent();
-            CheckAmount();
-
-
+            DBUtils dbUtils = new DBUtils();
+            dbUtils.CheckAmount();
         }
-
         public class showTable
         {
             public int ID { get; set; }
@@ -40,60 +38,10 @@ namespace VerticalRoot
                 return this.Name.ToString();
             }
         }
-        public void CheckAmount()
-        {
-            try
-            {
-                DB db = new DB();
-                db.openConnection();
-                List<int> currentPlantValues = db.getAllPlants(1);
-                List<int> SetplantValues = db.getAllPlantDetails(2, 2);
-               
-                //checking the  ldr
-                if(currentPlantValues[1] == SetplantValues[1])
-                {
-                    System.Windows.Forms.MessageBox.Show("Tes555555t");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Test");
-                } 
-                //checking the  Humidty
-                if(currentPlantValues[2] == SetplantValues[2])
-                {
-                    System.Windows.Forms.MessageBox.Show("Tes555555t");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Test");
-                }
-                //checking the  celsius
-                if(currentPlantValues[3] == SetplantValues[3])
-                {
-                    System.Windows.Forms.MessageBox.Show("Tes555555t");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Test");
-                } 
-                //checking the  water_use
-                if(currentPlantValues[4] == SetplantValues[4])
-                {
-                    System.Windows.Forms.MessageBox.Show("Tes555555t");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Test");
-                } 
-                //checking the moisture
-                if(currentPlantValues[5] == SetplantValues[5])
-                {
-                    System.Windows.Forms.MessageBox.Show("Tes555555t");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Test");
-                }
+        //public void CheckAmount()
+        //{
+        //    try
+        //    {
                 //using (MySqlDataReader plantValues = a.ExecuteReader())
                 //{
                 //    // get al data from tbl_datadetails
@@ -101,10 +49,6 @@ namespace VerticalRoot
                 //    //MySqlCommand command = new MySqlCommand(mysql, conn);
 
                 //    //get al data from plantdetails connected to user and clicked plant
-
-
-
-
 
                 //    //if the user data.celsius > command2.celsuis
                 //    //using (MySqlDataReader plantValues = command2.ExecuteReader())
@@ -134,22 +78,14 @@ namespace VerticalRoot
                 //            }
                 //        }
                 //    }
-
-
-                    //}
-
-
-
-
-
                 //}
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
-
-        }
+                //}
+        //    }
+        //    catch (Exception e)
+        //    {
+        //        MessageBox.Show(e.Message);
+        //    }
+        //}
         public class PlantDetails
         {
             public int Col1 { get; set; }
@@ -219,15 +155,12 @@ namespace VerticalRoot
                     }
                 }
                 myListView.ItemsSource = users;
-
-
             }
             catch (Exception ex)
             {
                 MessageBox.Show(ex.Message);
             }
         }
-
         public void DtGrid_SelectionChanged(object sender, SelectionChangedEventArgs e)
         {
             //string uid = "2";
@@ -237,7 +170,5 @@ namespace VerticalRoot
             //stuur door naar de nieuwe form
             // return [uid, pid];
         }
-
     }
-
 }

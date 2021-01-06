@@ -47,7 +47,6 @@ namespace VerticalRoot
             DB word = new DB();
             word.openConnection();
             var sql = word.GetConnection();
-
             List<int> plantIds = sql.Query<int>("select plant_id from tbl_datadetails").ToList();
             List<int> value_celsius = sql.Query<int>("select celsius from tbl_datadetails").ToList();
             List<int> value_ldr = sql.Query<int>("select ldr from tbl_datadetails").ToList();
@@ -125,7 +124,7 @@ namespace VerticalRoot
         /// <param name="id">plant id</param>
         /// <param name="type"> a statusType enum</param>
         /// <returns>correct label string for the specified type</returns>
-        public void StatusChecker(int id, StatusType type,System.Windows.Controls.Label xLabel)
+        public void StatusChecker(int id, StatusType type, System.Windows.Controls.Label xLabel)
         {
             string toReturn = "";
             Crop myCrop = this.getByPlantId(id);
