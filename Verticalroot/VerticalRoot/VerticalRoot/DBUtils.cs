@@ -15,6 +15,7 @@ namespace VerticalRoot
         {
             DB word = new DB();
             string selectedPlant = "SELECT * FROM tbl_datadetails WHERE plant_id = 1;";
+            word.openConnection();
             MySqlCommand command = new MySqlCommand(selectedPlant, word.GetConnection());
             List<int> plantLists = new List<int>(5);
             using (MySqlDataReader plantValues = command.ExecuteReader())
@@ -45,6 +46,7 @@ namespace VerticalRoot
             string selectPlant = "SELECT * FROM tbl_plantdetails WHERE user_id = 2 AND plant_id = 1;";
 
             DB word = new DB();
+            word.openConnection();
             MySqlCommand command = new MySqlCommand(selectPlant, word.GetConnection());
             List<int> plantLists = new List<int>(5);
             using (MySqlDataReader plantValues = command.ExecuteReader())
@@ -66,71 +68,6 @@ namespace VerticalRoot
                     }
                 }
             return plantLists;
-        }
-
-        public void CheckAmount()
-        {
-            try
-            {
-                DB db = new DB();
-                db.openConnection();
-                List<int> currentPlantValues = getAllPlants(1);
-                List<int> SetplantValues = getAllPlantDetails(2, 2);
-
-                //checking the  ldr
-                if (currentPlantValues[1] == SetplantValues[1])
-                {
-                    System.Windows.Forms.MessageBox.Show("Tes555555t");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Test");
-                }
-
-                //checking the  Humidty
-                if (currentPlantValues[2] == SetplantValues[2])
-                {
-                    System.Windows.Forms.MessageBox.Show("Tes555555t");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Test");
-                }
-
-                //checking the  celsius
-                if (currentPlantValues[3] == SetplantValues[3])
-                {
-                    System.Windows.Forms.MessageBox.Show("Tes555555t");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Test");
-                }
-
-                //checking the  water_use
-                if (currentPlantValues[4] == SetplantValues[4])
-                {
-                    System.Windows.Forms.MessageBox.Show("Tes555555t");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Test");
-                }
-
-                //checking the moisture
-                if (currentPlantValues[5] == SetplantValues[5])
-                {
-                    System.Windows.Forms.MessageBox.Show("Tes555555t");
-                }
-                else
-                {
-                    System.Windows.Forms.MessageBox.Show("Test");
-                }
-            }
-            catch (Exception e)
-            {
-                MessageBox.Show(e.Message);
-            }
         }
     }
 }

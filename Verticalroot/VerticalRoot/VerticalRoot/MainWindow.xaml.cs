@@ -26,23 +26,23 @@ namespace VerticalRoot
     {
         public MainWindow()
         {
-            databaseconnection d = new databaseconnection();
-            d.Show();
+            //databaseconnection d = new databaseconnection();
+            //d.Show();
             this.Title = "Login";
             InitializeComponent();
 
             //OPENING FORMS FOR TESTING
-           // databaseconnection egg = new databaseconnection();
-           // egg.Show();
+            // databaseconnection egg = new databaseconnection();
+            // egg.Show();
 
-            //plantdetail p = new plantdetail();
+            // plantdetail p = new plantdetail();
             //p.Show();
 
             //Dashboard dash = new Dashboard();
             //dash.Show();
 
-            //CropDetail cropdetail = new CropDetail();
-            //cropdetail.Show();
+            CropDetail cropdetail = new CropDetail();
+            cropdetail.Show();
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
@@ -65,11 +65,10 @@ namespace VerticalRoot
             string username = tbUsername2.Text;
             string password = tbPassword2.Text;
             Login login = new Login();
-            login.checkLogin(username, password);
-
+            int isLoggedIn = login.checkLogin(username, password);
 
             //if login is succesfull
-            if (true)
+            if (isLoggedIn > 0)
             {
                 MainWindow mnwindow = new MainWindow();
                 mnwindow.Close();
@@ -77,16 +76,11 @@ namespace VerticalRoot
                 dash.Show();
             }
             //if login is onsuccesfull
-            if (false)
+            if (isLoggedIn == 0)
             {
                 MessageBox.Show("Login unsuccessfull, please try again");
-
             }
-
-       
-
         }
-
         private void SearchTermTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 

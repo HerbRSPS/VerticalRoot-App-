@@ -1,5 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -8,19 +7,19 @@ using MySql.Data.MySqlClient;
 
 namespace VerticalRoot
 {
-    class Login
+    public class Login
     {
-        public bool checkLogin(string usr, string pwd)
+        public int userId;
+        public int checkLogin(string usr, string pwd)
         {
-            bool success = false;
             DB db = new DB();
+
             db.openConnection();
             System.Data.DataTable table = new System.Data.DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE name = @usn and password = @pass", db.GetConnection());
-
+            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE name = @usn and password = @pass",
+                db.GetConnection());
             command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = usr;
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = pwd;
 
@@ -28,13 +27,24 @@ namespace VerticalRoot
 
             adapter.Fill(table);
 
-            if (table.Rows.Count > 0)
+            using (MySqlDataReader getUserId = adapter.SelectCommand.ExecuteReader())
             {
-                return true;
-            }
-            else
-            {
-                return false;
+                if (getUserId.HasRows)
+                {
+                    while (getUserId.Read())
+                    {
+                        if (table.Rows.Count > 0)
+                        {
+                            userId = Convert.ToInt32(getUserId["id"]);
+                            return userId;
+                        }
+                        else
+                        {
+                            return 0;
+                        }
+                    }
+                }
+                return 0;
             }
         }
     }

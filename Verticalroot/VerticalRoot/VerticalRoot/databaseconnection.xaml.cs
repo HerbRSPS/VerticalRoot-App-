@@ -24,7 +24,6 @@ namespace VerticalRoot
         {
             InitializeComponent();
             DBUtils dbUtils = new DBUtils();
-            dbUtils.CheckAmount();
         }
         public class showTable
         {

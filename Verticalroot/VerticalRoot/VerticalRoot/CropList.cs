@@ -25,7 +25,7 @@ namespace VerticalRoot
 
     class CropList
     {
-        private List<Crop> cropList;
+        public List<Crop> cropList;
         public class showTable
         {
             public int ID { get; set; }
@@ -39,9 +39,9 @@ namespace VerticalRoot
             }
         }
 
-        /// <summary>
-        /// fills the cropList.
-        /// </summary>
+        ///// <summary>
+        ///// fills the cropList.
+        ///// </summary>
         public void SensorQuery()
         {
             DB word = new DB();
@@ -146,65 +146,17 @@ namespace VerticalRoot
                     toReturn = StatusWaterFlow(myCrop);
                     break;
             }
-
             if (toReturn == "Perfect!")
                 xLabel.Foreground = Brushes.ForestGreen;
             xLabel.Content = toReturn;
         }
 
         /// <summary>
-        /// Validates the parameter for the WaterFlow of a given crop
+        /// Created instance to be used for value differences
         /// </summary>
-        /// <param name="myCrop">a crop to check</param>
-        /// <returns>the correct label string</returns>
-        private string StatusWaterFlow(Crop myCrop)
-        {
-            if (myCrop.water_flowStatus != 4)
-            {
-                //temp is not 4 L/H
-                if (myCrop.water_flowStatus < 4)
-                {
-                    //temp is under 4
-                    int valueDifference1 = 4 - myCrop.water_flowStatus;
-                    return "Your Water flow is to slow! Add " + valueDifference1 + "L/H";
-                }
-                else if (myCrop.water_flowStatus > 4)
-                {
-                    //temp is above 4
-                    int valueDifference2 = myCrop.water_flowStatus - 4;
-                    return "Your Water flow is to fast! Lower " + valueDifference2 + "L/H";
-                }
-            }
-            //temp == 4
-            return "Perfect!";
-        }
-
-        /// <summary>
-        /// Validates the parameter for the Moisture of a given crop
-        /// </summary>
-        /// <param name="myCrop">a crop to check</param>
-        /// <returns>the correct label string</returns>
-        private string StatusMoisture(Crop myCrop)
-        {
-            if (myCrop.moistureStatus != 40)
-            {
-                //temp is not 40 %
-                if (myCrop.moistureStatus < 40)
-                {
-                    //temp is under 40
-                    int valueDifference1 = 40 - myCrop.moistureStatus;
-                    return "Your moisture is to low! Add " + valueDifference1 + "%";
-                }
-                else if (myCrop.moistureStatus > 40)
-                {
-                    //temp is above 40
-                    int valueDifference2 = myCrop.moistureStatus - 40;
-                    return "Your moisture is to high! Lower " + valueDifference2 + "%";
-                }
-            }
-            //temp == 40
-            return "Perfect!";
-        }
+        /// <param name="plantDetails">Getting details from selected crop</param>
+        /// <returns>Value of crop</returns>
+        DBUtils plantDetails = new DBUtils();
 
         /// <summary>
         /// Validates the parameter for the LDR of a given crop
@@ -213,19 +165,22 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusLDR(Crop myCrop)
         {
-            if (myCrop.ldrStatus != 20000)
+            Login test = new Login();
+            int userIds = test.userId;
+            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, 2);
+            if (myCrop.ldrStatus != SetValues[0])
             {
                 //temp is not 20000 LX
-                if (myCrop.ldrStatus < 20000)
+                if (myCrop.ldrStatus < SetValues[0])
                 {
                     //temp is under 20000
-                    int valueDifference1 = 20000 - myCrop.ldrStatus;
+                    int valueDifference1 = SetValues[0] - myCrop.ldrStatus;
                     return "Your LDR is to low! Add " + valueDifference1 + "LUX";
                 }
-                else if (myCrop.ldrStatus > 20000)
+                else if (myCrop.ldrStatus > SetValues[0])
                 {
                     //temp is above 20000
-                    int valueDifference2 = myCrop.ldrStatus - 20000;
+                    int valueDifference2 = myCrop.ldrStatus - SetValues[0];
                     return "Your LDR is to high! Lower " + valueDifference2 + "LUX";
                 }
             }
@@ -240,19 +195,20 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusHumidity(Crop myCrop)
         {
-            if (myCrop.humidityStatus != 60)
+            List<int> SetValues = plantDetails.getAllPlantDetails(2, 2);
+            if (myCrop.humidityStatus != SetValues[1])
             {
                 //temp is not 60%
-                if (myCrop.humidityStatus < 60)
+                if (myCrop.humidityStatus < SetValues[1])
                 {
                     //temp is under 60
-                    int valueDifference1 = 60 - myCrop.humidityStatus;
+                    int valueDifference1 = SetValues[1] - myCrop.humidityStatus;
                     return "Your humidity is to low! Add " + valueDifference1 + "%";
                 }
-                else if (myCrop.humidityStatus > 60)
+                else if (myCrop.humidityStatus > SetValues[1])
                 {
                     //temp is above 60
-                    int valueDifference2 = myCrop.humidityStatus - 60;
+                    int valueDifference2 = myCrop.humidityStatus - SetValues[1];
                     return "Your humidity is to high! Lower " + valueDifference2 + "%";
                 }
             }
@@ -267,23 +223,80 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusTemperature(Crop myCrop)
         {
-            if (myCrop.temperatureStatus != 15)
+            List<int> SetValues = plantDetails.getAllPlantDetails(2, 2);
+            if (myCrop.temperatureStatus != SetValues[2])
             {
                 //temp is not 15 degrees
-                if (myCrop.temperatureStatus < 15)
+                if (myCrop.temperatureStatus < SetValues[2])
                 {
                     //temp is under 15
-                    int valueDifference1 = 15 - myCrop.temperatureStatus;
+                    int valueDifference1 = SetValues[2] - myCrop.temperatureStatus;
                     return "Your temperature is to low! Add " + valueDifference1 + "°";
                 }
-                else if (myCrop.temperatureStatus > 15)
+                else if (myCrop.temperatureStatus > SetValues[2])
                 {
                     //temp is above 15
-                    int valueDifference2 = myCrop.temperatureStatus - 15;
+                    int valueDifference2 = myCrop.temperatureStatus - SetValues[2];
                     return "Your temperature is to high! Lower " + valueDifference2 + "°";
                 }
             }
             //temp == 15
+            return "Perfect!";
+        }
+
+        /// <summary>
+        /// Validates the parameter for the WaterFlow of a given crop
+        /// </summary>
+        /// <param name="myCrop">a crop to check</param>
+        /// <returns>the correct label string</returns>
+        private string StatusWaterFlow(Crop myCrop)
+        {
+            List<int> SetValues = plantDetails.getAllPlantDetails(2, 2);
+            if (myCrop.water_flowStatus != SetValues[3])
+            {
+                //temp is not 4 L/H
+                if (myCrop.water_flowStatus < SetValues[3])
+                {
+                    //temp is under 4
+                    int valueDifference1 = SetValues[3] - myCrop.water_flowStatus;
+                    return "Your Water flow is to slow! Add " + valueDifference1 + "L/H";
+                }
+                else if (myCrop.water_flowStatus > SetValues[3])
+                {
+                    //temp is above 4
+                    int valueDifference2 = myCrop.water_flowStatus - SetValues[3];
+                    return "Your Water flow is to fast! Lower " + valueDifference2 + "L/H";
+                }
+            }
+            //temp == 4
+            return "Perfect!";
+        }
+
+        /// <summary>
+        /// Validates the parameter for the Moisture of a given crop
+        /// </summary>
+        /// <param name="myCrop">a crop to check</param>
+        /// <returns>the correct label string</returns>
+        private string StatusMoisture(Crop myCrop)
+        {
+            List<int> SetValues = plantDetails.getAllPlantDetails(2, 2);
+            if (myCrop.moistureStatus != SetValues[4])
+            {
+                //temp is not 40 %
+                if (myCrop.moistureStatus < SetValues[4])
+                {
+                    //temp is under 40
+                    int valueDifference1 = SetValues[4] - myCrop.moistureStatus;
+                    return "Your moisture is to low! Add " + valueDifference1 + "%";
+                }
+                else if (myCrop.moistureStatus > SetValues[4])
+                {
+                    //temp is above 40
+                    int valueDifference2 = myCrop.moistureStatus - SetValues[4];
+                    return "Your moisture is to high! Lower " + valueDifference2 + "%";
+                }
+            }
+            //temp == 40
             return "Perfect!";
         }
     }
