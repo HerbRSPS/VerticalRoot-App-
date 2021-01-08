@@ -33,6 +33,8 @@ namespace VerticalRoot
                 db.openConnection();
                 string uid = "2";
                 string pid = "1";
+                Login login = new Login();
+                
                 string mysql = "SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = @pid;";
 
                 MySqlCommand command = new MySqlCommand(mysql, db.GetConnection());
@@ -54,6 +56,7 @@ namespace VerticalRoot
         }
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
+
             foreach (DataRowView row in dt_plantdetail.SelectedItems)
             {
                 DB db = new DB();

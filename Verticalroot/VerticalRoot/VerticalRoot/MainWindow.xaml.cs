@@ -24,6 +24,8 @@ namespace VerticalRoot
     /// </summary>
     public partial class MainWindow : Window
     {
+        public static int userId { get; set; }
+
         public MainWindow()
         {
             //databaseconnection d = new databaseconnection();
@@ -41,8 +43,8 @@ namespace VerticalRoot
             //Dashboard dash = new Dashboard();
             //dash.Show();
 
-            CropDetail cropdetail = new CropDetail();
-            cropdetail.Show();
+            //CropDetail cropdetail = new CropDetail();
+            //cropdetail.Show();
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
 
@@ -59,14 +61,15 @@ namespace VerticalRoot
         //        tbUsername.Text = "";
         //    }
         //}
-
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string username = tbUsername2.Text;
             string password = tbPassword2.Text;
             Login login = new Login();
             int isLoggedIn = login.checkLogin(username, password);
-
+            login.getUserID(isLoggedIn);
+            userId = isLoggedIn;
+           
             //if login is succesfull
             if (isLoggedIn > 0)
             {

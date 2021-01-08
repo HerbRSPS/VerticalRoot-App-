@@ -22,6 +22,7 @@ namespace VerticalRoot
         public Dashboard()
         {
             InitializeComponent();
+            int i = MainWindow.userId;
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
         private void Name_Copy9_MouseDoubleClick(object sender, MouseButtonEventArgs e)

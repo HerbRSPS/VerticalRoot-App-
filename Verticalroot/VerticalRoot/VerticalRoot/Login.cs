@@ -18,8 +18,7 @@ namespace VerticalRoot
             System.Data.DataTable table = new System.Data.DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
-            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE name = @usn and password = @pass",
-                db.GetConnection());
+            MySqlCommand command = new MySqlCommand("SELECT * FROM users WHERE name = @usn and password = @pass", db.GetConnection());
             command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = usr;
             command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = pwd;
 
@@ -46,6 +45,11 @@ namespace VerticalRoot
                 }
                 return 0;
             }
+        }
+        public int getUserID(int uid)
+        {
+            
+            return uid;
         }
     }
 }

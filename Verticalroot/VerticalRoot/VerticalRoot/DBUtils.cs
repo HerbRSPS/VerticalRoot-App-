@@ -43,6 +43,8 @@ namespace VerticalRoot
         //get all the plantsdetails(with gesette waardes) for the user and specific clicked plant.
         public List<int> getAllPlantDetails(int uid, int plant_id)
         {
+         
+
             string selectPlant = "SELECT * FROM tbl_plantdetails WHERE user_id = 2 AND plant_id = 1;";
 
             DB word = new DB();
