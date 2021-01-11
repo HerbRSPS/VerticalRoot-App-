@@ -34,8 +34,8 @@ namespace VerticalRoot
             InitializeComponent();
 
             //OPENING FORMS FOR TESTING
-            // databaseconnection egg = new databaseconnection();
-            // egg.Show();
+             databaseconnection egg = new databaseconnection();
+             egg.Show();
 
             // plantdetail p = new plantdetail();
             //p.Show();
@@ -47,27 +47,14 @@ namespace VerticalRoot
             //cropdetail.Show();
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-
-            //tbUsername.Text = "Enter text here...";
-
-            //tbUsername.GotFocus += GotFocus.EventHandle(RemoveText);
-            //tbUsername.LostFocus += LostFocus.EventHandle(AddText);
         }
-        //public void RemoveText(object sender, EventArgs e)
-        //{
-        //    if (tbUsername.Text == "Enter text here...")
-        //    {
-        //        tbUsername.Text = "";
-        //    }
-        //}
+        
         private void Button_Click(object sender, RoutedEventArgs e)
         {
             string username = tbUsername2.Text;
             string password = tbPassword2.Text;
             Login login = new Login();
             int isLoggedIn = login.checkLogin(username, password);
-            login.getUserID(isLoggedIn);
             userId = isLoggedIn;
            
             //if login is succesfull

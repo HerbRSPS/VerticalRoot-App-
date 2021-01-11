@@ -31,8 +31,8 @@ namespace VerticalRoot
             {
                 DB db = new DB();
                 db.openConnection();
-                string uid = "2";
-                string pid = "1";
+                int uid = MainWindow.userId;
+                int pid = CropList.plantID;
                 Login login = new Login();
                 
                 string mysql = "SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = @pid;";

@@ -46,10 +46,6 @@ namespace VerticalRoot
                 return 0;
             }
         }
-        public int getUserID(int uid)
-        {
-            
-            return uid;
-        }
+        
     }
 }
