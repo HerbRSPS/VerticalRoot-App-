@@ -95,6 +95,9 @@ namespace VerticalRoot
             try
             {
                 string connectionString = "Server=studmysql01.fhict.local;Uid=dbi467376;Database=dbi467376;Pwd=password123;"; //database server name and mysql port and username and password
+                DB db = new DB();
+                db.openConnection();
+                db.GetConnection();
                 string mysql = "SELECT * FROM tbl_datadetails;";
 
                 MySqlConnection conn = new MySqlConnection(connectionString);

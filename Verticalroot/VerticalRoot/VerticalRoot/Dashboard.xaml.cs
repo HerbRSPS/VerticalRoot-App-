@@ -27,8 +27,10 @@ namespace VerticalRoot
         private void Name_Copy9_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Hide();
-            DashboardMyCrops MyCrops = new DashboardMyCrops();
-            MyCrops.Show();
+            CropDetail cd = new CropDetail();
+            cd.Show();
+            plantdetail pd = new plantdetail();
+            pd.Show();
         }
         private void Name_Copy10_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {

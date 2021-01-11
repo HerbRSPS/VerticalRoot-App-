@@ -9,7 +9,7 @@ namespace VerticalRoot
 {
     public class Login
     {
-        public int userId;
+        public static int userId { get; set; }
         public int checkLogin(string usr, string pwd)
         {
             DB db = new DB();

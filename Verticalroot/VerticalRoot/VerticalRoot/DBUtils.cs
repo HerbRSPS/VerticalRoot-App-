@@ -43,16 +43,16 @@ namespace VerticalRoot
         //get all the plantsdetails(with gesette waardes) for the user and specific clicked plant.
         public List<int> getAllPlantDetails(int uid, int plant_id)
         {
+            DB word = new DB();
+            word.openConnection();
 
             int i = MainWindow.userId;
 
-            string selectPlant = "SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = @pid;";
+            MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = 1;", word.GetConnection());
             //MySqlCommand command = command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = i;
-            //command.Parameters.Add("@pass", MySqlDbType.VarChar).Value = i;
+            command.Parameters.Add("@uid", MySqlDbType.VarChar).Value = i;
 
-            DB word = new DB();
-            word.openConnection();
-            MySqlCommand command = new MySqlCommand(selectPlant, word.GetConnection());
+            
             List<int> plantLists = new List<int>(5);
             using (MySqlDataReader plantValues = command.ExecuteReader())
 

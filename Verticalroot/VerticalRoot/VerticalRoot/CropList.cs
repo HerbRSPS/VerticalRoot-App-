@@ -168,8 +168,7 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusLDR(Crop myCrop)
         {
-            Login test = new Login();
-            int userIds = test.userId;
+            int userIds = Login.userId;
             List<int> SetValues = plantDetails.getAllPlantDetails(userIds, 2);
             if (myCrop.ldrStatus != SetValues[0])
             {
