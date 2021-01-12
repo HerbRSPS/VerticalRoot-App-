@@ -23,6 +23,10 @@ namespace VerticalRoot
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
+            CropList plantName = new CropList();
+            plantName.plantNameQuery();
+            PlantNameListView.ItemsSource = plantName.plantNameList;
+            PlantNameListView.Items.Refresh();
         }
 
         private void Name_Dashboard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
@@ -37,6 +41,19 @@ namespace VerticalRoot
             Hide();
             MainWindow Login = new MainWindow();
             Login.Show();
+        }
+
+        private void EventSetter_OnHandler(object sender, MouseButtonEventArgs e)
+        {
+            Hide();
+            CropDetail cropDetail = new CropDetail();
+            //CropList cropList = new CropList();
+            //cropList.getByPlantId();
+            ////Crop crop = new Crop();
+            //int pid = crop.plantId;
+
+
+            cropDetail.Show();
         }
     }
 }
