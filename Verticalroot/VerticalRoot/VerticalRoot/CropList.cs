@@ -26,6 +26,7 @@ namespace VerticalRoot
     class CropList
     {
         public List<Crop> cropList;
+        public List<string> plantNameList;
         public static int plantID { get; set; }
         public class showTable
         {
@@ -61,6 +62,31 @@ namespace VerticalRoot
                 Crop newCrop = new Crop(plantIds[index], v, value_ldr[index], value_humidity[index], value_water_flow[index], value_moisture[index]);
                 cropList.Add(newCrop);
                 index++;
+            }
+        }
+
+        ///// <summary>
+        ///// fills the plantNameList.
+        ///// </summary>
+        public MySqlDataReader plantNameQuery()
+        {
+
+            DB db = new DB();
+            db.openConnection();
+            int uid = Login.userId;
+            string getIds = "SELECT plant_name FROM tbl_datadetails WHERE user_id = @uid";
+            MySqlCommand command = new MySqlCommand(getIds, db.GetConnection());
+            command.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
+            plantNameList = new List<string>();
+
+            using (MySqlDataReader reader = command.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    string plantName = reader.GetString("plant_name");
+                    plantNameList.Add(plantName);
+                }
+                return null;
             }
         }
 
@@ -158,8 +184,15 @@ namespace VerticalRoot
         /// Created instance to be used for value differences
         /// </summary>
         /// <param name="plantDetails">Getting details from selected crop</param>
-        /// <returns>Value of crop</returns>
+        /// <returns>DBUtils instance</returns>
         DBUtils plantDetails = new DBUtils();
+
+        /// <summary>
+        /// Passed on userID into new variable.
+        /// </summary>
+        /// <param name="userIds">Getting userID from login.</param>
+        /// <returns>userID</returns>
+        int userIds = Login.userId;
 
         /// <summary>
         /// Validates the parameter for the LDR of a given crop
@@ -168,8 +201,7 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusLDR(Crop myCrop)
         {
-            int userIds = Login.userId;
-            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, 2);
+            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
             if (myCrop.ldrStatus != SetValues[0])
             {
                 //temp is not 20000 LX
@@ -197,7 +229,7 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusHumidity(Crop myCrop)
         {
-            List<int> SetValues = plantDetails.getAllPlantDetails(2, 2);
+            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
             if (myCrop.humidityStatus != SetValues[1])
             {
                 //temp is not 60%
@@ -225,7 +257,7 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusTemperature(Crop myCrop)
         {
-            List<int> SetValues = plantDetails.getAllPlantDetails(2, 2);
+            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
             if (myCrop.temperatureStatus != SetValues[2])
             {
                 //temp is not 15 degrees
@@ -253,7 +285,7 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusWaterFlow(Crop myCrop)
         {
-            List<int> SetValues = plantDetails.getAllPlantDetails(2, 2);
+            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
             if (myCrop.water_flowStatus != SetValues[3])
             {
                 //temp is not 4 L/H
@@ -281,7 +313,7 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusMoisture(Crop myCrop)
         {
-            List<int> SetValues = plantDetails.getAllPlantDetails(2, 2);
+            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
             if (myCrop.moistureStatus != SetValues[4])
             {
                 //temp is not 40 %

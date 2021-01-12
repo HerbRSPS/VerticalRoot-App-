@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Runtime.CompilerServices;
 using System.Text;
 using System.Threading.Tasks;
 
@@ -32,5 +33,10 @@ namespace VerticalRoot
         public int temperatureStatus;
         public int moistureStatus;
         public int water_flowStatus;
+
+        public Crop(int plantId)
+        {
+            this.plantId = plantId;
+        }
     }
 }

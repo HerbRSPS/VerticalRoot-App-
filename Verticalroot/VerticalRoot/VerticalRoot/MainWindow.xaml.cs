@@ -34,11 +34,15 @@ namespace VerticalRoot
             InitializeComponent();
 
             //OPENING FORMS FOR TESTING
-             //databaseconnection egg = new databaseconnection();
-             //egg.Show();
+            //databaseconnection egg = new databaseconnection();
+            //egg.Show();
 
-            // plantdetail p = new plantdetail();
+            //plantdetail p = new plantdetail();
             //p.Show();
+
+            //DashboardMyCrops huts = new DashboardMyCrops();
+            //huts.Show();
+            
 
             //Dashboard dash = new Dashboard();
             //dash.Show();
@@ -64,11 +68,6 @@ namespace VerticalRoot
                 mnwindow.Close();
                 Dashboard dash = new Dashboard();
                 dash.Show();
-               
-
-              
-
-            
             }
             //if login is onsuccesfull
             if (isLoggedIn == 0)
