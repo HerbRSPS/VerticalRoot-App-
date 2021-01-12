@@ -20,7 +20,7 @@ namespace VerticalRoot
     {
 
 
-        int uid = MainWindow.userId;
+        int uid = Login.userId;
         string pid = "1";
         string mysql = "SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = @pid;";
         public MySqlDataAdapter connect()

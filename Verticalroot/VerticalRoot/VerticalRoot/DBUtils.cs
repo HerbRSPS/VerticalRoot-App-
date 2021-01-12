@@ -46,7 +46,7 @@ namespace VerticalRoot
             DB word = new DB();
             word.openConnection();
 
-            int i = MainWindow.userId;
+            int i = Login.userId;
 
             MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = 1;", word.GetConnection());
             //MySqlCommand command = command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = i;
