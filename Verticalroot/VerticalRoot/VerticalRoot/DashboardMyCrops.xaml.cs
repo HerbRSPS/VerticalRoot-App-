@@ -19,13 +19,14 @@ namespace VerticalRoot
     /// </summary>
     public partial class DashboardMyCrops : Window
     {
+        private CropList myList = new CropList();
         public DashboardMyCrops()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-            CropList plantName = new CropList();
-            plantName.plantNameQuery();
-            PlantNameListView.ItemsSource = plantName.plantNameList;
+
+            myList.plantNameQuery();
+            PlantNameListView.ItemsSource = myList.plantNameList;
             PlantNameListView.Items.Refresh();
         }
 
@@ -46,13 +47,9 @@ namespace VerticalRoot
         private void EventSetter_OnHandler(object sender, MouseButtonEventArgs e)
         {
             Hide();
-            CropDetail cropDetail = new CropDetail();
-            //CropList cropList = new CropList();
-            //cropList.getByPlantId();
-            ////Crop crop = new Crop();
-            //int pid = crop.plantId;
-
-
+            ListViewItem click = (ListViewItem)sender;
+            int id = myList.returnPlantId(click.Content.ToString());
+            CropDetail cropDetail = new CropDetail(id);
             cropDetail.Show();
         }
     }

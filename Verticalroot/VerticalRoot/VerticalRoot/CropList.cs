@@ -27,6 +27,7 @@ namespace VerticalRoot
     {
         public List<Crop> cropList;
         public List<string> plantNameList;
+        public List<int> plantIdList;
         public static int plantID { get; set; }
         public class showTable
         {
@@ -49,35 +50,49 @@ namespace VerticalRoot
             DB word = new DB();
             word.openConnection();
             var sql = word.GetConnection();
-            List<int> plantIds = sql.Query<int>("select plant_id from tbl_datadetails").ToList();
-            List<int> value_celsius = sql.Query<int>("select celsius from tbl_datadetails").ToList();
-            List<int> value_ldr = sql.Query<int>("select ldr from tbl_datadetails").ToList();
-            List<int> value_humidity = sql.Query<int>("select humidity from tbl_datadetails").ToList();
-            List<int> value_moisture = sql.Query<int>("select moisture from tbl_datadetails").ToList();
-            List<int> value_water_flow = sql.Query<int>("select water_use from tbl_datadetails").ToList();
+            plantIdList = sql.Query<int>("SELECT plant_id FROM tbl_datadetails WHERE user_id = "+Login.userId).ToList();
+            List<int> value_celsius = sql.Query<int>("select celsius from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
+            List<int> value_ldr = sql.Query<int>("select ldr from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
+            List<int> value_humidity = sql.Query<int>("select humidity from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
+            List<int> value_moisture = sql.Query<int>("select moisture from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
+            List<int> value_water_flow = sql.Query<int>("select water_use from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
             cropList = new List<Crop>(value_water_flow.Count);
             int index = 0;
             foreach (var v in value_celsius)
             {
-                Crop newCrop = new Crop(plantIds[index], v, value_ldr[index], value_humidity[index], value_water_flow[index], value_moisture[index]);
+                Crop newCrop = new Crop(plantIdList[index], v, value_ldr[index], value_humidity[index], value_water_flow[index], value_moisture[index]);
                 cropList.Add(newCrop);
                 index++;
             }
+            word.closeConnection();
         }
 
         ///// <summary>
         ///// fills the plantNameList.
         ///// </summary>
-        public MySqlDataReader plantNameQuery()
+        public List<string> plantNameQuery()
         {
+            //DB db = new DB();
+            //db.openConnection();
+            //var sql = db.GetConnection();
+            //plantNameList = new List<string>();
+            //plantIdList = new List<int>();
+
+            //plantNameList = sql.Query<string>("SELECT plant_name FROM tbl_datadetails WHERE user_id = @uid").ToList();
+            //plantIdList = sql.Query<int>("SELECT plant_id FROM tbl_datadetails WHERE user_id = @uid").ToList();
+            //return plantNameList;
 
             DB db = new DB();
             db.openConnection();
             int uid = Login.userId;
-            string getIds = "SELECT plant_name FROM tbl_datadetails WHERE user_id = @uid";
-            MySqlCommand command = new MySqlCommand(getIds, db.GetConnection());
+            string getPLantName = "SELECT plant_name FROM tbl_datadetails WHERE user_id = @uid";
+            string getPlantId = "SELECT plant_id FROM tbl_datadetails WHERE user_id = @uid";
+            MySqlCommand command = new MySqlCommand(getPLantName, db.GetConnection());
+            MySqlCommand command1 = new MySqlCommand(getPlantId, db.GetConnection());
             command.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
+            command1.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
             plantNameList = new List<string>();
+            plantIdList = new List<int>();
 
             using (MySqlDataReader reader = command.ExecuteReader())
             {
@@ -86,8 +101,30 @@ namespace VerticalRoot
                     string plantName = reader.GetString("plant_name");
                     plantNameList.Add(plantName);
                 }
-                return null;
             }
+            using (MySqlDataReader reader = command1.ExecuteReader())
+            {
+                while (reader.Read())
+                {
+                    int plantId = reader.GetInt32("plant_id");
+                    plantIdList.Add(plantId);
+                }
+            }
+            return plantNameList;
+        }
+
+        public int returnPlantId(string get)
+        {
+            int index = 0;
+            foreach (string x in plantNameList)
+            {
+                if (x == get)
+                {
+                    return plantIdList[index];
+                }
+                index++;
+            }
+            return -1;
         }
 
         /// <summary>

@@ -23,9 +23,8 @@ namespace VerticalRoot
     public partial class CropDetail : Window
     {
         CropList cropList = new CropList();
-        public CropDetail()
+        public CropDetail(int id)
         {
-            int id = 1;
             InitializeComponent();
             cropList.SensorQuery();
             ValueListView.ItemsSource = cropList.getValuesByPlantId(id);
