@@ -45,20 +45,17 @@ namespace VerticalRoot
         }
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
-
             foreach (DataRowView row in dt_plantdetail.SelectedItems)
             {
-                string text = row.Row.ItemArray[0].ToString();
-
+                
                 int plantID = Convert.ToInt32(row.Row.ItemArray[0]);
+                int i = MainWindow.userId;
                 string Query = "UPDATE tbl_plantdetails SET set_humidity = " + row.Row.ItemArray[4] + ", set_celsius= " + row.Row.ItemArray[5] + ", set_water_use = " + row.Row.ItemArray[6] + ", set_moisture = " + row.Row.ItemArray[7] + " WHERE plant_id = " + plantID;
-                // plant_name = " + row.Row.ItemArray[3] + ", 
                 MySqlCommand command = new MySqlCommand(Query, db.GetConnection());
                 MySqlDataAdapter da = new MySqlDataAdapter(command);
                 DataTable dtt = new DataTable();
                 da.Fill(dtt);
                 dt_plantdetail.Items.Refresh();
-                MessageBox.Show(Query);
             }
         }
     }

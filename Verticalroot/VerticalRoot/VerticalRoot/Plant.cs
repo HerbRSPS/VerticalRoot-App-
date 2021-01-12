@@ -13,11 +13,14 @@ using System.Windows.Media;
 using System.Windows.Media.Imaging;
 using System.Windows.Shapes;
 using MySql.Data.MySqlClient;
+
 namespace VerticalRoot
 {
     class Plant
     {
-        string uid = "2";
+
+
+        int uid = MainWindow.userId;
         string pid = "1";
         string mysql = "SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = @pid;";
         public MySqlDataAdapter connect()

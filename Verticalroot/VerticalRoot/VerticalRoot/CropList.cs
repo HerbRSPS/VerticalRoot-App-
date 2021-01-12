@@ -26,6 +26,7 @@ namespace VerticalRoot
     class CropList
     {
         public List<Crop> cropList;
+        public static int plantID { get; set; }
         public class showTable
         {
             public int ID { get; set; }
@@ -102,6 +103,7 @@ namespace VerticalRoot
             {
                 if (vCrop.plantId == id)
                 {
+                    plantID = vCrop.plantId;
                     return vCrop;
                 }
             }
@@ -115,6 +117,7 @@ namespace VerticalRoot
         /// <returns>a crop</returns>
         public Crop getCrop(int id)
         {
+            plantID = id;
             return cropList[id];
         }
 
@@ -165,8 +168,7 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusLDR(Crop myCrop)
         {
-            Login test = new Login();
-            int userIds = test.userId;
+            int userIds = Login.userId;
             List<int> SetValues = plantDetails.getAllPlantDetails(userIds, 2);
             if (myCrop.ldrStatus != SetValues[0])
             {

@@ -10,7 +10,10 @@ namespace VerticalRoot
 {
     class DB
     {
-        MySqlConnection connection = new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi467376;Database=dbi467376;Pwd=password123;");
+        //LOCAL DATABASE
+        MySqlConnection connection = new MySqlConnection("Server=localhost;Uid=root;Database=dbi467376;Pwd=;");
+        //MYSQL DATABASE
+        //MySqlConnection connection = new MySqlConnection("Server=studmysql01.fhict.local;Uid=dbi467376;Database=dbi467376;Pwd=password123;");
         public void openConnection()
         {
             if (connection.State == System.Data.ConnectionState.Closed)
