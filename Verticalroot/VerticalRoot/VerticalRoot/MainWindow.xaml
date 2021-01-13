@@ -89,8 +89,8 @@
                 </Style>
             </TextBlock.Style>
         </TextBlock>
-        <TextBox  Width="207"  VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="tbPassword2" Margin="296,236,0,162" Height="27" BorderThickness="0" FontSize="16"/>
-        <TextBlock IsHitTestVisible="False" Text="Password" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="296,236,0,162" Foreground="DarkGray" Height="27" Width="209" FontSize="16">
+        <TextBox  Width="207" KeyDown="OnKeyDownHandler" VerticalAlignment="Center" HorizontalAlignment="Left" x:Name="tbPassword2" Margin="296,236,0,162" Height="27" BorderThickness="0" FontSize="16"/>
+        <TextBlock IsHitTestVisible="False"  Text="Password" VerticalAlignment="Center" HorizontalAlignment="Left" Margin="296,236,0,162" Foreground="DarkGray" Height="27" Width="209" FontSize="16" GotFocus="TextBlock_GotFocus">
             <TextBlock.Style>
                 <Style TargetType="{x:Type TextBlock}">
                     <Setter Property="Visibility" Value="Collapsed"/>

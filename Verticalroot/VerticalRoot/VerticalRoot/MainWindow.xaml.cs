@@ -28,27 +28,9 @@ namespace VerticalRoot
 
         public MainWindow()
         {
-            //databaseconnection d = new databaseconnection();
-            //d.Show();
+       
             this.Title = "Login";
             InitializeComponent();
-
-            //OPENING FORMS FOR TESTING
-            //databaseconnection egg = new databaseconnection();
-            //egg.Show();
-
-            //plantdetail p = new plantdetail();
-            //p.Show();
-
-            //DashboardMyCrops huts = new DashboardMyCrops();
-            //huts.Show();
-            
-
-            //Dashboard dash = new Dashboard();
-            //dash.Show();
-
-            //CropDetail cropdetail = new CropDetail();
-            //cropdetail.Show();
 
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
@@ -78,6 +60,18 @@ namespace VerticalRoot
         private void SearchTermTextBox_TextChanged(object sender, TextChangedEventArgs e)
         {
 
+        }
+
+        private void TextBlock_GotFocus(object sender, RoutedEventArgs e)
+        {
+            
+        }
+        private void OnKeyDownHandler(object sender, KeyEventArgs e)
+        {
+            if (e.Key == Key.Return)
+            {
+                this.Button_Click(sender, e);
+            }
         }
     }
 }

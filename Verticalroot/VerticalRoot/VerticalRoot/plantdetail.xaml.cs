@@ -39,9 +39,6 @@ namespace VerticalRoot
             {
                 MessageBox.Show(ex.Message);
             }
-
-
-
         }
         private void btn_Save_Click(object sender, RoutedEventArgs e)
         {
