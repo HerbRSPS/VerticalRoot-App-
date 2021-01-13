@@ -1,8 +1,4 @@
 ﻿using System;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using MySql.Data.MySqlClient;
 
 namespace VerticalRoot
@@ -12,9 +8,9 @@ namespace VerticalRoot
         public static int userId { get; set; }
         public int checkLogin(string usr, string pwd)
         {
-            DB db = new DB();
+            Db db = new Db();
 
-            db.openConnection();
+            db.OpenConnection();
             System.Data.DataTable table = new System.Data.DataTable();
 
             MySqlDataAdapter adapter = new MySqlDataAdapter();
@@ -37,15 +33,10 @@ namespace VerticalRoot
                             userId = Convert.ToInt32(getUserId["id"]);
                             return userId;
                         }
-                        else
-                        {
-                            return 0;
-                        }
                     }
                 }
                 return 0;
             }
         }
-        
     }
 }

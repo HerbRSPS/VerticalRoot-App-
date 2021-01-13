@@ -1,15 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Drawing;
+﻿using System.Collections.Generic;
 using System.Linq;
-using System.Media;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows.Forms;
 using MySql.Data.MySqlClient;
 using Dapper;
-using Google.Protobuf.Reflection;
-using Brush = System.Windows.Media.Brush;
 using Brushes = System.Windows.Media.Brushes;
 
 namespace VerticalRoot
@@ -28,13 +20,13 @@ namespace VerticalRoot
         public List<Crop> cropList;
         public List<string> plantNameList;
         public List<int> plantIdList;
+        DBUtils plantDetails = new DBUtils();
+        int userIds = Login.userId;
         public static int plantID { get; set; }
+
         public class showTable
         {
-            public int ID { get; set; }
             public string Name { get; set; }
-            public int Text { get; set; }
-            public int Pid { get; set; }
 
             public override string ToString()
             {
@@ -47,9 +39,9 @@ namespace VerticalRoot
         ///// </summary>
         public void SensorQuery()
         {
-            DB word = new DB();
-            word.openConnection();
-            var sql = word.GetConnection();
+            Db databaseConnection = new Db();
+            databaseConnection.OpenConnection();
+            MySqlConnection sql = databaseConnection.GetConnection();
             plantIdList = sql.Query<int>("SELECT plant_id FROM tbl_datadetails WHERE user_id = "+Login.userId).ToList();
             List<int> value_celsius = sql.Query<int>("select celsius from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
             List<int> value_ldr = sql.Query<int>("select ldr from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
@@ -58,43 +50,33 @@ namespace VerticalRoot
             List<int> value_water_flow = sql.Query<int>("select water_use from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
             cropList = new List<Crop>(value_water_flow.Count);
             int index = 0;
-            foreach (var v in value_celsius)
+            foreach (int value in value_celsius)
             {
-                Crop newCrop = new Crop(plantIdList[index], v, value_ldr[index], value_humidity[index], value_water_flow[index], value_moisture[index]);
+                Crop newCrop = new Crop(plantIdList[index], value, value_ldr[index], value_humidity[index], value_water_flow[index], value_moisture[index]);
                 cropList.Add(newCrop);
                 index++;
             }
-            word.closeConnection();
+            databaseConnection.CloseConnection();
         }
 
         ///// <summary>
-        ///// fills the plantNameList.
+        ///// Creates 2 lists, where one is for the plant names and the other for the plant id's.
         ///// </summary>
-        public List<string> plantNameQuery()
+        public List<string> PlantNameQuery()
         {
-            //DB db = new DB();
-            //db.openConnection();
-            //var sql = db.GetConnection();
-            //plantNameList = new List<string>();
-            //plantIdList = new List<int>();
-
-            //plantNameList = sql.Query<string>("SELECT plant_name FROM tbl_datadetails WHERE user_id = @uid").ToList();
-            //plantIdList = sql.Query<int>("SELECT plant_id FROM tbl_datadetails WHERE user_id = @uid").ToList();
-            //return plantNameList;
-
-            DB db = new DB();
-            db.openConnection();
+            Db db = new Db();
+            db.OpenConnection();
             int uid = Login.userId;
             string getPLantName = "SELECT plant_name FROM tbl_datadetails WHERE user_id = @uid";
             string getPlantId = "SELECT plant_id FROM tbl_datadetails WHERE user_id = @uid";
-            MySqlCommand command = new MySqlCommand(getPLantName, db.GetConnection());
-            MySqlCommand command1 = new MySqlCommand(getPlantId, db.GetConnection());
-            command.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
-            command1.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
+            MySqlCommand getPlantNameCommand = new MySqlCommand(getPLantName, db.GetConnection());
+            MySqlCommand getPlantIdCommand = new MySqlCommand(getPlantId, db.GetConnection());
+            getPlantNameCommand.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
+            getPlantIdCommand.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
             plantNameList = new List<string>();
             plantIdList = new List<int>();
 
-            using (MySqlDataReader reader = command.ExecuteReader())
+            using (MySqlDataReader reader = getPlantNameCommand.ExecuteReader())
             {
                 while (reader.Read())
                 {
@@ -102,7 +84,7 @@ namespace VerticalRoot
                     plantNameList.Add(plantName);
                 }
             }
-            using (MySqlDataReader reader = command1.ExecuteReader())
+            using (MySqlDataReader reader = getPlantIdCommand.ExecuteReader())
             {
                 while (reader.Read())
                 {
@@ -113,12 +95,17 @@ namespace VerticalRoot
             return plantNameList;
         }
 
-        public int returnPlantId(string get)
+        /// <summary>
+        /// Returns that row 1 in plantNameList = row 1 plantIdList.
+        /// </summary>
+        /// <param name="get">plant id</param>
+        /// <returns>plantId</returns>
+        public int ReturnPlantId(string get)
         {
             int index = 0;
-            foreach (string x in plantNameList)
+            foreach (string plantName in plantNameList)
             {
-                if (x == get)
+                if (plantName == get)
                 {
                     return plantIdList[index];
                 }
@@ -132,17 +119,17 @@ namespace VerticalRoot
         /// </summary>
         /// <param name="id">plant id</param>
         /// <returns>List-ShowTable</returns>
-        public List<showTable> getValuesByPlantId(int id)
+        public List<showTable> GetValuesByPlantId(int id)
         {
-            foreach (var vCrop in cropList)
+            foreach (Crop crop in cropList)
             {
-                if (vCrop.plantId == id)
+                if (crop.plantId == id)
                 {
-                    string temperatureNaming = $"{vCrop.temperatureStatus} °";
-                    string ldrNaming = $"{vCrop.ldrStatus} LX";
-                    string humidityNaming = $"{vCrop.humidityStatus} %";
-                    string moistureNaming = $"{vCrop.moistureStatus} %";
-                    string water_useNaming = $"{vCrop.water_flowStatus} L/H";
+                    string temperatureNaming = $"{crop.temperatureStatus} °";
+                    string ldrNaming = $"{crop.ldrStatus} LX";
+                    string humidityNaming = $"{crop.humidityStatus} %";
+                    string moistureNaming = $"{crop.moistureStatus} %";
+                    string water_useNaming = $"{crop.water_flowStatus} L/H";
                     List<showTable> value_list = new List<showTable>(5);
                     value_list.Add(new showTable { Name = temperatureNaming });
                     value_list.Add(new showTable { Name = ldrNaming });
@@ -160,28 +147,17 @@ namespace VerticalRoot
         /// </summary>
         /// <param name="id">plant id</param>
         /// <returns>a crop</returns>
-        public Crop getByPlantId(int id)
+        public Crop GetByPlantId(int id)
         {
-            foreach (var vCrop in cropList)
+            foreach (Crop crop in cropList)
             {
-                if (vCrop.plantId == id)
+                if (crop.plantId == id)
                 {
-                    plantID = vCrop.plantId;
-                    return vCrop;
+                    plantID = crop.plantId;
+                    return crop;
                 }
             }
             return null;
-        }
-
-        /// <summary>
-        /// returns the crop based on the id in the list. (starts at 0)
-        /// </summary>
-        /// <param name="id">id in list</param>
-        /// <returns>a crop</returns>
-        public Crop getCrop(int id)
-        {
-            plantID = id;
-            return cropList[id];
         }
 
         /// <summary>
@@ -193,7 +169,7 @@ namespace VerticalRoot
         public void StatusChecker(int id, StatusType type, System.Windows.Controls.Label xLabel)
         {
             string toReturn = "";
-            Crop myCrop = this.getByPlantId(id);
+            Crop myCrop = this.GetByPlantId(id);
             switch (type)
             {
                 case StatusType.Temperature:
@@ -203,7 +179,7 @@ namespace VerticalRoot
                     toReturn = StatusHumidity(myCrop);
                     break;
                 case StatusType.LDR:
-                    toReturn = StatusLDR(myCrop);
+                    toReturn = StatusLdr(myCrop);
                     break;
                 case StatusType.Moisture:
                     toReturn = StatusMoisture(myCrop);
@@ -218,44 +194,26 @@ namespace VerticalRoot
         }
 
         /// <summary>
-        /// Created instance to be used for value differences
-        /// </summary>
-        /// <param name="plantDetails">Getting details from selected crop</param>
-        /// <returns>DBUtils instance</returns>
-        DBUtils plantDetails = new DBUtils();
-
-        /// <summary>
-        /// Passed on userID into new variable.
-        /// </summary>
-        /// <param name="userIds">Getting userID from login.</param>
-        /// <returns>userID</returns>
-        int userIds = Login.userId;
-
-        /// <summary>
         /// Validates the parameter for the LDR of a given crop
         /// </summary>
         /// <param name="myCrop">a crop to check</param>
         /// <returns>the correct label string</returns>
-        private string StatusLDR(Crop myCrop)
+        private string StatusLdr(Crop myCrop)
         {
-            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
-            if (myCrop.ldrStatus != SetValues[0])
+            List<int> setValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
+            if (myCrop.ldrStatus != setValues[0])
             {
-                //temp is not 20000 LX
-                if (myCrop.ldrStatus < SetValues[0])
+                if (myCrop.ldrStatus < setValues[0])
                 {
-                    //temp is under 20000
-                    int valueDifference1 = SetValues[0] - myCrop.ldrStatus;
+                    int valueDifference1 = setValues[0] - myCrop.ldrStatus;
                     return "Your LDR is to low! Add " + valueDifference1 + "LUX";
                 }
-                else if (myCrop.ldrStatus > SetValues[0])
+                else if (myCrop.ldrStatus > setValues[0])
                 {
-                    //temp is above 20000
-                    int valueDifference2 = myCrop.ldrStatus - SetValues[0];
+                    int valueDifference2 = myCrop.ldrStatus - setValues[0];
                     return "Your LDR is to high! Lower " + valueDifference2 + "LUX";
                 }
             }
-            //temp == 20000
             return "Perfect!";
         }
 
@@ -266,24 +224,20 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusHumidity(Crop myCrop)
         {
-            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
-            if (myCrop.humidityStatus != SetValues[1])
+            List<int> setValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
+            if (myCrop.humidityStatus != setValues[1])
             {
-                //temp is not 60%
-                if (myCrop.humidityStatus < SetValues[1])
+                if (myCrop.humidityStatus < setValues[1])
                 {
-                    //temp is under 60
-                    int valueDifference1 = SetValues[1] - myCrop.humidityStatus;
+                    int valueDifference1 = setValues[1] - myCrop.humidityStatus;
                     return "Your humidity is to low! Add " + valueDifference1 + "%";
                 }
-                else if (myCrop.humidityStatus > SetValues[1])
+                else if (myCrop.humidityStatus > setValues[1])
                 {
-                    //temp is above 60
-                    int valueDifference2 = myCrop.humidityStatus - SetValues[1];
+                    int valueDifference2 = myCrop.humidityStatus - setValues[1];
                     return "Your humidity is to high! Lower " + valueDifference2 + "%";
                 }
             }
-            //temp == 60
             return "Perfect!";
         }
 
@@ -294,24 +248,20 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusTemperature(Crop myCrop)
         {
-            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
-            if (myCrop.temperatureStatus != SetValues[2])
+            List<int> setValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
+            if (myCrop.temperatureStatus != setValues[2])
             {
-                //temp is not 15 degrees
-                if (myCrop.temperatureStatus < SetValues[2])
+                if (myCrop.temperatureStatus < setValues[2])
                 {
-                    //temp is under 15
-                    int valueDifference1 = SetValues[2] - myCrop.temperatureStatus;
+                    int valueDifference1 = setValues[2] - myCrop.temperatureStatus;
                     return "Your temperature is to low! Add " + valueDifference1 + "°";
                 }
-                else if (myCrop.temperatureStatus > SetValues[2])
+                else if (myCrop.temperatureStatus > setValues[2])
                 {
-                    //temp is above 15
-                    int valueDifference2 = myCrop.temperatureStatus - SetValues[2];
+                    int valueDifference2 = myCrop.temperatureStatus - setValues[2];
                     return "Your temperature is to high! Lower " + valueDifference2 + "°";
                 }
             }
-            //temp == 15
             return "Perfect!";
         }
 
@@ -322,24 +272,20 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusWaterFlow(Crop myCrop)
         {
-            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
-            if (myCrop.water_flowStatus != SetValues[3])
+            List<int> setValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
+            if (myCrop.water_flowStatus != setValues[3])
             {
-                //temp is not 4 L/H
-                if (myCrop.water_flowStatus < SetValues[3])
+                if (myCrop.water_flowStatus < setValues[3])
                 {
-                    //temp is under 4
-                    int valueDifference1 = SetValues[3] - myCrop.water_flowStatus;
+                    int valueDifference1 = setValues[3] - myCrop.water_flowStatus;
                     return "Your Water flow is to slow! Add " + valueDifference1 + "L/H";
                 }
-                else if (myCrop.water_flowStatus > SetValues[3])
+                else if (myCrop.water_flowStatus > setValues[3])
                 {
-                    //temp is above 4
-                    int valueDifference2 = myCrop.water_flowStatus - SetValues[3];
+                    int valueDifference2 = myCrop.water_flowStatus - setValues[3];
                     return "Your Water flow is to fast! Lower " + valueDifference2 + "L/H";
                 }
             }
-            //temp == 4
             return "Perfect!";
         }
 
@@ -350,24 +296,20 @@ namespace VerticalRoot
         /// <returns>the correct label string</returns>
         private string StatusMoisture(Crop myCrop)
         {
-            List<int> SetValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
-            if (myCrop.moistureStatus != SetValues[4])
+            List<int> setValues = plantDetails.getAllPlantDetails(userIds, myCrop.plantId);
+            if (myCrop.moistureStatus != setValues[4])
             {
-                //temp is not 40 %
-                if (myCrop.moistureStatus < SetValues[4])
+                if (myCrop.moistureStatus < setValues[4])
                 {
-                    //temp is under 40
-                    int valueDifference1 = SetValues[4] - myCrop.moistureStatus;
+                    int valueDifference1 = setValues[4] - myCrop.moistureStatus;
                     return "Your moisture is to low! Add " + valueDifference1 + "%";
                 }
-                else if (myCrop.moistureStatus > SetValues[4])
+                else if (myCrop.moistureStatus > setValues[4])
                 {
-                    //temp is above 40
-                    int valueDifference2 = myCrop.moistureStatus - SetValues[4];
+                    int valueDifference2 = myCrop.moistureStatus - setValues[4];
                     return "Your moisture is to high! Lower " + valueDifference2 + "%";
                 }
             }
-            //temp == 40
             return "Perfect!";
         }
     }

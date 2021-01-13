@@ -1,58 +1,23 @@
 ﻿using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
 using MySql.Data.MySqlClient;
 
 namespace VerticalRoot
 {
     class DBUtils
     {
-        //get all the plants connected to the given user
-        public List<int> getAllPlants(int id)
-        {
-            DB word = new DB();
-            string selectedPlant = "SELECT * FROM tbl_datadetails WHERE plant_id = 1;";
-            word.openConnection();
-            MySqlCommand command = new MySqlCommand(selectedPlant, word.GetConnection());
-            List<int> plantLists = new List<int>(5);
-            using (MySqlDataReader plantValues = command.ExecuteReader())
-
-                if (plantValues.HasRows)
-                {
-                    while (plantValues.Read())
-                    {
-                        int currentPlantCelsius = Convert.ToInt32(plantValues["celsius"]);
-                        int currentPlantLdr = Convert.ToInt32(plantValues["ldr"]);
-                        int currentPlantHumidty = Convert.ToInt32(plantValues["humidity"]);
-                        int currentPlantMoisture = Convert.ToInt32(plantValues["moisture"]);
-                        int currentPlantWateruse = Convert.ToInt32(plantValues["water_use"]);
-                        plantLists.Add(currentPlantLdr);
-                        plantLists.Add(currentPlantHumidty);
-                        plantLists.Add(currentPlantCelsius);
-                        plantLists.Add(currentPlantWateruse);
-                        plantLists.Add(currentPlantMoisture);
-                    }
-                }
-            // return list met al die shit hierboven
-            return plantLists;
-        }
-
         //get all the plantsdetails(with gesette waardes) for the user and specific clicked plant.
         public List<int> getAllPlantDetails(int uid, int plant_id)
         {
-            DB word = new DB();
-            word.openConnection();
+            Db word = new Db();
+            word.OpenConnection();
 
-            int i = Login.userId;
+            //int id = DashboardMyCrops.id;
+            //MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_plantdetails WHERE plant_id = @pid AND user_id = " + Login.userId, word.GetConnection());
+            //command.Parameters.Add("@pid", MySqlDbType.VarChar).Value = id;
 
-            MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_plantdetails WHERE user_id = @uid AND plant_id = 1;", word.GetConnection());
-            //MySqlCommand command = command.Parameters.Add("@usn", MySqlDbType.VarChar).Value = i;
-            command.Parameters.Add("@uid", MySqlDbType.VarChar).Value = i;
+            MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_plantdetails WHERE plant_id = 1 AND user_id = " + Login.userId, word.GetConnection());
 
-            
             List<int> plantLists = new List<int>(5);
             using (MySqlDataReader plantValues = command.ExecuteReader())
 

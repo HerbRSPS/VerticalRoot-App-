@@ -145,7 +145,7 @@
     <Compile Include="databaseconnection.xaml.cs">
       <DependentUpon>databaseconnection.xaml</DependentUpon>
     </Compile>
-    <Compile Include="DB.cs" />
+    <Compile Include="Db.cs" />
     <Compile Include="DBUtils.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>

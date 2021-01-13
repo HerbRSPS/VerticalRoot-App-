@@ -1,16 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
+﻿using System.Windows;
 using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace VerticalRoot
 {
@@ -19,13 +9,14 @@ namespace VerticalRoot
     /// </summary>
     public partial class DashboardMyCrops : Window
     {
+        public static int id { get; set; }
         private CropList myList = new CropList();
+
         public DashboardMyCrops()
         {
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
-
-            myList.plantNameQuery();
+            myList.PlantNameQuery();
             PlantNameListView.ItemsSource = myList.plantNameList;
             PlantNameListView.Items.Refresh();
         }
@@ -44,13 +35,18 @@ namespace VerticalRoot
             Login.Show();
         }
 
+        /// <summary>
+        /// Creating a ListViewItem from sender by casting it to ListViewItem, getting the id and passing it to the cropDetail instance.
+        /// </summary>
         private void EventSetter_OnHandler(object sender, MouseButtonEventArgs e)
         {
             Hide();
             ListViewItem click = (ListViewItem)sender;
-            int id = myList.returnPlantId(click.Content.ToString());
+            id = myList.ReturnPlantId(click.Content.ToString());
             CropDetail cropDetail = new CropDetail(id);
             cropDetail.Show();
+            plantdetail pd = new plantdetail();
+            pd.Show();
         }
     }
 }

@@ -1,16 +1,5 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
+﻿using System.Windows;
 using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Shapes;
 
 namespace VerticalRoot
 {
@@ -24,17 +13,13 @@ namespace VerticalRoot
             InitializeComponent();
             this.WindowStartupLocation = WindowStartupLocation.CenterScreen;
         }
-        private void Name_Copy9_MouseDoubleClick(object sender, MouseButtonEventArgs e)
+        private void MyCrops_MouseDoubleClick(object sender, MouseButtonEventArgs e)
         {
             Hide();
-            //CropDetail cd = new CropDetail();
-            //cd.Show();
             DashboardMyCrops dash = new DashboardMyCrops();
             dash.Show();
-            plantdetail pd = new plantdetail();
-            pd.Show();
         }
-        private void Name_Copy10_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
+        private void Logout_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Hide();
             MainWindow Login = new MainWindow();
