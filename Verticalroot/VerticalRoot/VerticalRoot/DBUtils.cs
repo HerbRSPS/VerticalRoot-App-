@@ -12,11 +12,9 @@ namespace VerticalRoot
             Db word = new Db();
             word.OpenConnection();
 
-            //int id = DashboardMyCrops.id;
-            //MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_plantdetails WHERE plant_id = @pid AND user_id = " + Login.userId, word.GetConnection());
-            //command.Parameters.Add("@pid", MySqlDbType.VarChar).Value = id;
-
-            MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_plantdetails WHERE plant_id = 1 AND user_id = " + Login.userId, word.GetConnection());
+            int id = DashboardMyCrops.id;
+            MySqlCommand command = new MySqlCommand("SELECT * FROM tbl_plantdetails WHERE plant_id = @pid AND user_id = " + Login.userId, word.GetConnection());
+            command.Parameters.Add("@pid", MySqlDbType.VarChar).Value = id;
 
             List<int> plantLists = new List<int>(5);
             using (MySqlDataReader plantValues = command.ExecuteReader())

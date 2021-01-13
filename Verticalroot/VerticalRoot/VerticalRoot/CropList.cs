@@ -14,7 +14,6 @@ namespace VerticalRoot
         WaterFlow,
         LDR
     }
-
     class CropList
     {
         public List<Crop> cropList;
@@ -42,7 +41,7 @@ namespace VerticalRoot
             Db databaseConnection = new Db();
             databaseConnection.OpenConnection();
             MySqlConnection sql = databaseConnection.GetConnection();
-            plantIdList = sql.Query<int>("SELECT plant_id FROM tbl_datadetails WHERE user_id = "+Login.userId).ToList();
+            plantIdList = sql.Query<int>("SELECT plant_id FROM tbl_datadetails WHERE user_id = " + Login.userId).ToList();
             List<int> value_celsius = sql.Query<int>("select celsius from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
             List<int> value_ldr = sql.Query<int>("select ldr from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
             List<int> value_humidity = sql.Query<int>("select humidity from tbl_datadetails WHERE user_id = " + Login.userId).ToList();
@@ -67,12 +66,10 @@ namespace VerticalRoot
             Db db = new Db();
             db.OpenConnection();
             int uid = Login.userId;
-            string getPLantName = "SELECT plant_name FROM tbl_datadetails WHERE user_id = @uid";
-            string getPlantId = "SELECT plant_id FROM tbl_datadetails WHERE user_id = @uid";
+            string getPLantName = "SELECT plant_name FROM tbl_datadetails WHERE user_id = " + Login.userId;
+            string getPlantId = "SELECT plant_id FROM tbl_datadetails WHERE user_id =" + Login.userId;
             MySqlCommand getPlantNameCommand = new MySqlCommand(getPLantName, db.GetConnection());
             MySqlCommand getPlantIdCommand = new MySqlCommand(getPlantId, db.GetConnection());
-            getPlantNameCommand.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
-            getPlantIdCommand.Parameters.Add("@uid", MySqlDbType.VarChar).Value = uid;
             plantNameList = new List<string>();
             plantIdList = new List<int>();
 
