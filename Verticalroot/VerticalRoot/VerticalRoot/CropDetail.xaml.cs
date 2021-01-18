@@ -22,7 +22,7 @@ namespace VerticalRoot
             cropList.StatusChecker(id, StatusType.WaterFlow, waterFlowLabel);
             ValueListView.Items.Refresh();
         }
-        public static object Current { get; internal set; }
+
         private void Name_Dashboard_MouseLeftButtonUp(object sender, MouseButtonEventArgs e)
         {
             Hide();

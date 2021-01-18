@@ -26,5 +26,10 @@
         public int temperatureStatus;
         public int moistureStatus;
         public int water_flowStatus;
+
+        public Crop(int plantId)
+        {
+            this.plantId = plantId;
+        }
     }
 }
